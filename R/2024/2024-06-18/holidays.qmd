@@ -1,0 +1,196 @@
+---
+title: "US Federal Holidays"
+format: pdf
+editor: visual
+knitr:
+  opts_chunk: 
+    collapse: true
+    comment: "#>"
+    warning: false
+    message: false
+    R.options:
+      knitr.graphics.auto_pdf: true
+---
+
+\newpage
+
+## Introduction
+
+The **US Federal Holidays** data is obtained from the [Wikipedia page about Federal holidays in the United States](https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States) and is the dataset under focus on the [tidytuesday week 25.](https://github.com/rfordatascience/tidytuesday/tree/main/data/2024/2024-06-18).
+
+The data comprises of two datasets, the federal holidays data and the proposed federal holidays, with the variables defined as:
+
+1.  federal_holidays.csv
+
+-   date: The month and day or days when the holiday is celebrated.
+
+-   date_definition: Whether the date is a "fixed date" or follows some other pattern.
+
+-   official_name: The official name of the holiday
+
+-   year_established: The year in which the holiday was officially established as a federal holiday.
+
+-   date_established: The date on which the holiday was officially established as a federal holiday, if known.
+
+-   details: Additional details about the holiday, from the Wikipedia article.
+
+2.  proposed_federal_holidays.csv
+
+-   date: The month and day or days when the holiday would be celebrated.
+
+-   date_definition: Whether the date is a "fixed date" or follows some other pattern.
+
+-   official_name: The proposed official name of the holiday.
+
+-   details: Additional details about the holiday, from the Wikipedia article.
+
+Of interest is to plot the sequence of holidays and outlay their category and how they overlap.
+
+\newpage
+
+## Analysis
+
+### Load Libraries
+
+```{r}
+library(tidyverse)
+library(readr)
+library(ggrepel)
+```
+
+### Load Data
+
+```{r}
+# Option 1: tidytuesdayR package 
+## install.packages("tidytuesdayR")
+
+tuesdata <- tidytuesdayR::tt_load('2024-06-18')
+## OR
+# tuesdata <- tidytuesdayR::tt_load(2024, week = 25)
+
+federal_holidays <- tuesdata$federal_holidays
+proposed_federal_holidays <- tuesdata$proposed_federal_holidays
+
+# Option 2: Read directly from GitHub
+# federal_holidays <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-06-18/federal_holidays.csv')
+# proposed_federal_holidays <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-06-18/proposed_federal_holidays.csv')
+```
+
+### Data Structure
+
+```{r}
+glimpse(federal_holidays)
+```
+
+```{r}
+glimpse(federal_holidays)
+```
+
+\newpage
+
+### Exploratory Analysis
+
+#### Data Preparation
+
+-   Combine the two datasets and include column to define whether holiday is federal or proposed
+-   Extract the date of holiday observation
+
+```{r}
+#
+# federal_holidays <- read_csv("federal_holidays.csv")
+# # View(federal_holidays)
+# #
+# proposed_federal_holidays <- read_csv("proposed_federal_holidays.csv")
+# View(proposed_federal_holidays)
+#
+holidays <- bind_rows(
+  federal_holidays |> 
+    mutate(
+      state = 'Federal Holiday'
+    ), 
+  proposed_federal_holidays |> 
+    mutate(
+      state = 'Proposed Holiday'
+    )) |> 
+  separate_wider_delim(
+    cols = date, delim = ' ', names = c('month', 'day_interval'),
+    too_few = 'align_start', cols_remove = F
+  ) |> 
+  separate_wider_delim(
+    cols = day_interval, delim = '–', names = c('start', 'end'),
+    too_few = 'align_start'
+  ) |> 
+  mutate(
+    start_date = ymd(paste('2024', month, start, sep='')),
+    end_date = ymd(paste('2024', month, end, sep='')),
+    y = nchar(official_name)
+  ) |> select(-start, -end, -month) |> 
+  mutate(
+    y = case_when(
+      state == 'Federal Holiday' ~ y,
+      state == 'Proposed Holiday' ~ -y
+    )
+  )
+```
+
+```{r}
+head(holidays)
+```
+
+#### Visualization
+
+-   A geom linerange is used to plot
+
+```{r}
+#| code-overflow: wrap
+holidays_plot <- holidays |> 
+  ggplot(
+    aes(x = start_date, y = y)
+  ) + 
+  geom_linerange(
+    aes(x = start_date, y = y, ymin = 0, ymax = (\(x) ifelse(x > 0, x-2,x+2))(y) )
+  ) +
+  geom_hline(yintercept = 0, linetype = 'solid', color = 'black') +
+  theme_classic() + 
+  scale_y_continuous(limits = c(-35,40)) +
+  ggrepel::geom_text_repel(
+    aes(x = start_date, y = y, 
+        label = paste(official_name |> trimws(), date, sep = '\n'), 
+        color = state)) + 
+  annotate(
+    'text', x = as.Date("2024-10-01"), y = 30,
+    # /federal_holidays.csv\n
+    # Data : https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-06-18/proposed_federal_holidays.csv\n
+    label =  'Data : https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-06-18\nGithub: https://github.com/akhapwoyaco/\n https://github.com/akhapwoyaco/Tidytuesday/tree/main/R/2024/2024-06-18') +
+  theme(
+    axis.line = element_blank(), 
+    axis.text = element_blank(), 
+    axis.ticks = element_blank(),
+    axis.title = element_blank(),
+    legend.title = element_blank(),
+    # 
+    plot.title = element_text(hjust = 0.5, face = 'bold'),
+    plot.subtitle = element_text(hjust = 0.5, face = 'bold'),
+    legend.position = "top"
+  )
+```
+
+```{r}
+#| fig.height: 10
+#| fig.width: 20
+#| label: fig-charts
+#| fig-cap: "Holidays Charts"
+#| fig-align: center
+#| fig.dpi: 650
+holidays_plot
+```
+
+\newpage
+
+#### Save plot
+
+```{r}
+ggsave(
+  plot = holidays_plot, filename = "holidays_plot.jpeg", 
+  width = 40, height = 25, units = "cm", dpi = 400)
+```

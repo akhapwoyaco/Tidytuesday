@@ -3,10 +3,25 @@ library(tidyverse)
 library(readr)
 library(ggrepel)
 #
-federal_holidays <- read_csv("federal_holidays.csv")
-# View(federal_holidays)
+# Option 1: tidytuesdayR package 
+## install.packages("tidytuesdayR")
+
+tuesdata <- tidytuesdayR::tt_load('2024-06-18')
+## OR
+# tuesdata <- tidytuesdayR::tt_load(2024, week = 25)
+
+federal_holidays <- tuesdata$federal_holidays
+proposed_federal_holidays <- tuesdata$proposed_federal_holidays
+
+# Option 2: Read directly from GitHub
+# federal_holidays <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-06-18/federal_holidays.csv')
+# proposed_federal_holidays <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-06-18/proposed_federal_holidays.csv')
 #
-proposed_federal_holidays <- read_csv("proposed_federal_holidays.csv")
+#
+# federal_holidays <- read_csv("federal_holidays.csv")
+# # View(federal_holidays)
+# #
+# proposed_federal_holidays <- read_csv("proposed_federal_holidays.csv")
 # View(proposed_federal_holidays)
 #
 holidays <- bind_rows(
@@ -50,20 +65,9 @@ holidays_plot <- holidays |>
     aes(x = start_date, y = y, ymin = 0, ymax = (\(x) ifelse(x > 0, x-2,x+2))(y) )
   ) +
   geom_hline(yintercept = 0, linetype = 'solid', color = 'black') +
-  # geom_vline(aes(xintercept = start_date))
   theme_classic() + 
-  # scale_x_date(
-  #   breaks = holidays$start_date,
-  #   date_labels = "%Y-%m-%d"#,
-  #   # sec.axis = dup_axis(
-  #   #   ~., 
-  #   #   breaks = holidays$start_date,
-  #   #   labels = scales::label_date("%Y-%m-%d"))
-  # ) + 
   scale_y_continuous(limits = c(-35,40)) +
-  # geom_text(aes(x = start_date, y = y, label = official_name, color = state)) +
   ggrepel::geom_text_repel(
-    #arrow = arrow(length = unit(0.2, "npc")),
     aes(x = start_date, y = y, 
         label = paste(official_name |> trimws(), date, sep = '\n'), 
         color = state)) + 
@@ -73,10 +77,6 @@ holidays_plot <- holidays |>
     # Data : https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-06-18/proposed_federal_holidays.csv\n
     label =  'Data : https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-06-18\nGithub: https://github.com/akhapwoyaco/') +
   theme(
-    # panel.grid = element_blank(), 
-    # plot.background = element_blank()
-    # panel.border = element_blank()
-    
     axis.line = element_blank(), 
     axis.text = element_blank(), 
     axis.ticks = element_blank(),
