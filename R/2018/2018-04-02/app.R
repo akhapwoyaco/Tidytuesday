@@ -1,5 +1,5 @@
 ## usa_states_average_tuition
-
+library(tidytuesdayR)
 library(shiny)
 library(shinydashboard)
 library(ggplot2)
