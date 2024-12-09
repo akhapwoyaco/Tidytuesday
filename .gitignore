@@ -1,0 +1,13 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.zip
+*.py
+*.csv
+*.xlsx
+*.rds
+*.pdf
+*.sav
+*.sas7bdat
+data/

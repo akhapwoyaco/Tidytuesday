@@ -1,0 +1,6 @@
+library(readr)
+pride_index <- read_csv("pride_index.csv")
+# View(pride_index)
+# library(readr)
+pride_index_tags <- read_csv("pride_index_tags.csv")
+# View(pride_index_tags)
