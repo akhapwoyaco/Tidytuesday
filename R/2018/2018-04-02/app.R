@@ -1,3 +1,5 @@
+## usa_states_average_tuition
+
 library(shiny)
 library(shinydashboard)
 library(ggplot2)
@@ -12,7 +14,7 @@ library(devtools)
 tuesdata <- tidytuesdayR::tt_load('2018-04-02')
 us_avg_tuition <- tuesdata$us_avg_tuition
 state_admission_rates = read_csv(
-  file = 'state_admission_rate_avg.csv', show_col_types = FALSE)
+  file = 'data/state_admission_rate_avg.csv', show_col_types = FALSE)
 #' 
 
 
