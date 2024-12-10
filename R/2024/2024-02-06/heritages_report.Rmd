@@ -1,0 +1,160 @@
+---
+title: 'TidyTuesday:  Number of World Heritage sites'
+author: "Akhapwoya"
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: '6'
+  html_document:
+    df_print: paged
+    toc: true
+    toc_depth: '6'
+urlcolor: blue
+subtitle: "2024/2024-02-06"
+---
+
+\newpage
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+    echo = T, warning=FALSE, message=FALSE, attr.source='.numberLines', 
+    attr.output='.numberLines', fig.align='center', dpi=450, 
+    fig.width=10, fig.height=10)
+```
+
+# Introduction
+
+This week we're exploring a very small subset of [UNESCO World Heritage Sites](https://whc.unesco.org/en/list). 
+The [1 dataset, 100 visualizations project](https://100.datavizproject.com/) used this dataset to explore different ways of visualizing a simple dataset.
+
+# EDA
+
+```{r}
+library(readr)
+library(RColorBrewer)
+```
+
+
+```{r, eval=FALSE}
+heritage <- read_csv("heritage.csv")
+```
+
+## The Data
+
+### Data Dictionary
+
+1. country: Country
+2. 2004: Number of UNESCO World Heritage sites in 2004
+3. 2022: Number of UNESCO World Heritage sites in 2022
+
+```{r, eval=FALSE}
+# Option 1: tidytuesdayR package 
+## install.packages("tidytuesdayR")
+
+tuesdata <- tidytuesdayR::tt_load('2024-02-06')
+```
+
+
+```{r, eval=TRUE}
+## OR
+tuesdata <- tidytuesdayR::tt_load(2024, week = 6)
+heritage <- tuesdata$heritage
+```
+
+
+```{r, eval=FALSE}
+# Option 2: Read directly from GitHub
+heritage <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-02-06/heritage.csv')
+```
+
+
+\newpage
+## Stacked bar chart of the number of World Heritage sites in Denmark, Norway and Sweden in 2004 and 2022
+
+There are more sites in each country in 2022 than 2004, 4 and 10 in Denmark, 5 and 8 in Norway, 13 and 15 in Sweden respectively.
+
+```{r}
+# png("bar1.png", height=15, width=15, units="cm", res = 300)
+barplot(
+  as.matrix(heritage[,2:3]), beside=TRUE,
+  legend.text=heritage$country,
+  args.legend=list(bty="n",horiz=TRUE),
+  col=brewer.pal(3,"Set1"),
+  border="white",ylim=c(0,20),
+  #ylab="",
+  main="number of World Heritage sites")
+box(bty="l")
+# dev.off()
+```
+
+
+```{r}
+# png("bar2.png", height=15, width=15, units="cm", res = 300)
+barplot(
+  as.matrix(heritage[,2:3]), beside=TRUE,horiz=TRUE,
+  legend.text=heritage$country, 
+  args.legend=list(bty="n"),
+  col = brewer.pal(3,"Set1"),border="white",
+  xlim=c(0,20), 
+  #xlab="",
+  main="number of World Heritage sites")
+box(bty="l")
+# dev.off()
+```
+
+
+```{r}
+# png("bar3.png", height=15, width=15, units="cm", res = 300)
+x = barplot(
+  as.matrix(heritage[,2:3]), beside=TRUE,
+  legend.text = heritage$country, 
+  args.legend=list(bty="n",horiz=TRUE),
+  col=brewer.pal(3,"Set1"),border="white",
+  ylim=c(0,20),
+  main="number of World Heritage sites")
+y = as.matrix(heritage[,2:3])
+text(x,y-3,labels=as.character(y))
+# dev.off()
+```
+
+
+```{r, eval=FALSE}
+png("bar1.png", height=15, width=15, units="cm", res = 300)
+barplot(
+  as.matrix(heritage[,2:3]), beside=TRUE,
+  legend.text=heritage$country,
+  args.legend=list(bty="n",horiz=TRUE),
+  col=brewer.pal(3,"Set1"),
+  border="white",ylim=c(0,20),
+  #ylab="",
+  main="number of World Heritage sites")
+box(bty="l")
+dev.off()
+#
+png("bar2.png", height=15, width=15, units="cm", res = 300)
+barplot(
+  as.matrix(heritage[,2:3]), beside=TRUE,horiz=TRUE,
+  legend.text=heritage$country, 
+  args.legend=list(bty="n"),
+  col = brewer.pal(3,"Set1"),border="white",
+  xlim=c(0,20), 
+  #xlab="",
+  main="number of World Heritage sites")
+box(bty="l")
+dev.off()
+#
+png("bar3.png", height=15, width=15, units="cm", res = 300)
+x = barplot(
+  as.matrix(heritage[,2:3]), beside=TRUE,
+  legend.text = heritage$country, 
+  args.legend=list(bty="n",horiz=TRUE),
+  col=brewer.pal(3,"Set1"),border="white",
+  ylim=c(0,20),
+  main="number of World Heritage sites")
+y = as.matrix(heritage[,2:3])
+text(x,y-3,labels=as.character(y))
+dev.off()
+#
+```
+

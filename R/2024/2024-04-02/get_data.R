@@ -1,5 +1,5 @@
 #
-dubois_week10 <- read.csv("D:/2024/October/October_5/TidyTuesday/data/2024/2024-04-02/dubois_week10.csv")
+dubois_week10 <- read.csv("dubois_week10.csv")
 (dubois_week10)
 #
 barplot(dubois_week10)

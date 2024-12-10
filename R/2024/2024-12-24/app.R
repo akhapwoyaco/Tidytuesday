@@ -4,7 +4,9 @@
 library(ggrepel)
 library(dplyr)
 library(ggplot2)
-
+library(tidyr)
+library(lubridate)
+#
 tuesdata <- tidytuesdayR::tt_load('2024-12-24')
 global_holidays <- tuesdata$global_holidays
 monthly_passengers <- tuesdata$monthly_passengers
@@ -45,8 +47,11 @@ ui <- fluidPage(
     )
   ),
   fluidRow(
-    plotOutput('country_plot', height = '800px')
+    plotOutput('country_plot', height = '800px'),
+    br(),
+    plotOutput('box_country_plot', height = '800px')
   ),
+  br(),
   fluidRow(
     column(
       width = 6, 
@@ -67,14 +72,17 @@ server <- function(input, output, session) {
                  })
                  
                  output$h_date <- renderUI({
-                   dateRangeInput(
+                   sliderInput(
                      "dat_erange", "Date range:",
-                     start  = min(country_data()$Date),
-                     end    = max(country_data()$Date),
+                     value = c(year(min(country_data()$Date)), year(max(country_data()$Date))),
+                     min = year(min(country_data()$Date)),
+                     max = year(max(country_data()$Date))#,
+                     #step = 1
                      # min    = "2001-01-01",
                      # max    = "2012-12-21",
-                     format = "yyyy",
-                     separator = " - ")
+                     # format = "yyyy",
+                     # separator = " - "
+                   )
                  })
                }
   )
@@ -85,23 +93,21 @@ server <- function(input, output, session) {
         y = nchar(Name)*c(-2,2)
       )
   })
-  ggplot_out <- reactive({
+  plot_data_filtered <- reactive({
     req(input$holiday_type)
+    
     if (input$holiday_type == "ALL") {
-      plot_data =  country_data()
+      plot_data =  country_data() |>
+        filter(Date >= paste(input$dat_erange[1], '-01-01', sep='') & Date <= paste(input$dat_erange[2], sep='','-12-31'))
     } else {
-      plot_data =  country_data() |> filter(Type == input$holiday_type)
+      plot_data =  country_data() |> filter(Type == input$holiday_type) |> 
+        filter(Date >= paste(input$dat_erange[1], '-01-01', sep='') & Date <= paste(input$dat_erange[2], sep='','-12-31'))
     }
-    # plot_data |> 
-    country_data() |>
-      ggplot(aes(x = Date, y = y)) + 
-      # geom_linerange(
-      #   aes(x = Date, y = y, ymin = 0,
-      #       # color = Type,
-      #       ymax = (\(x) ifelse(x > 0, x-2,x+2))(y) )
-      # ) +
+  })
+  ggplot_out <- reactive({
+    plot_data_filtered() |>
+     ggplot(aes(x = Date, y = y)) +
       geom_linerange(
-        data = plot_data,
         aes(x = Date, y = y, ymin = 0,
             color = Type,
             ymax = (\(x) ifelse(x > 0, x-2,x+2))(y) )
@@ -109,21 +115,35 @@ server <- function(input, output, session) {
       geom_hline(yintercept = 0, linetype = 'solid', color = 'black') +
       theme_classic() +
       ggrepel::geom_text_repel(
-        data = plot_data,
         aes(x = Date, y = y, 
             label = Name |> trimws(), 
             color = Type)) +
       scale_color_brewer(palette = 'Dark2') +
+      scale_x_date(date_labels = "%m", date_breaks="6 month", expand=c(0,0) ) +
+      facet_grid( ~ year(Date), space="free_x", scales="free_x", switch="x") +
       theme(
         axis.line = element_blank(), 
-        axis.text = element_blank(), 
+        axis.text.y = element_blank(), 
         axis.ticks = element_blank(),
         axis.title = element_blank(),
         legend.title = element_blank(),
-        # 
-        plot.title = element_text(hjust = 0.5, face = 'bold'),
+        #
         plot.subtitle = element_text(hjust = 0.5, face = 'bold'),
-        legend.position = "top"
+        legend.position = "top",
+        # 
+        strip.placement = "outside",
+        # panel.border = element_rect(colour="grey70", linewidth = 0),
+        # panel.spacing=unit(0,"cm"),
+        # strip.text.x = element_text(size = rel(0.8)),
+        # panel.grid.minor.x = element_blank(),
+        # panel.grid.major.x = element_blank(),
+        # axis.line.y = element_blank(),
+        # panel.grid.minor = element_blank(),
+        # plot.title = element_text(face = "bold", hjust = 0.5),
+        # legend.text = element_text(face = "bold", size = rel(1.2)),
+        # 
+        # axis.text.x = element_text(face = "bold", size = rel(1), angle = 0),
+        # axis.text.y = element_text(face = "bold", size = rel(1))
       )
     
   })
@@ -131,12 +151,72 @@ server <- function(input, output, session) {
   output$country_plot <- renderPlot({
     ggplot_out()
   })
+  #
+  boxplot_data <- reactive({
+    req(country_data())
+    ISO_3 = unique(country_data()$ISO3)
+    #
+    monthly_passengers |>
+      filter(ISO3 == ISO_3) |> 
+      mutate(
+        Date = ym(paste(Year, Month))
+      ) |> 
+      pivot_longer(
+        cols = Total:Total_OS,
+        values_to = 'values',
+        names_to = 'names'
+      )
+    #
+  })
+  #
+  
+  output$box_country_plot <- renderPlot({
+    boxplot_data() |>
+      ggplot() +
+      geom_line(
+        aes(x = Date, y = values,
+            color = names)
+      ) +
+      #geom_hline(yintercept = 0, linetype = 'solid', color = 'black') +
+      theme_classic() #+
+      # ggrepel::geom_text_repel(
+      #   aes(x = Date, y = y, 
+      #       label = Name |> trimws(), 
+      #       color = Type)) +
+      # scale_color_brewer(palette = 'Dark2') +
+      # scale_x_date(date_labels = "%m", date_breaks="6 month", expand=c(0,0) ) +
+      # facet_grid( ~ year(Date), space="free_x", scales="free_x", switch="x") +
+      # theme(
+      #   axis.line = element_blank(), 
+      #   axis.text.y = element_blank(), 
+      #   axis.ticks = element_blank(),
+      #   axis.title = element_blank(),
+      #   legend.title = element_blank(),
+      #   #
+      #   plot.subtitle = element_text(hjust = 0.5, face = 'bold'),
+      #   legend.position = "top",
+      #   # 
+      #   strip.placement = "outside",
+      #   # panel.border = element_rect(colour="grey70", linewidth = 0),
+      #   # panel.spacing=unit(0,"cm"),
+      #   # strip.text.x = element_text(size = rel(0.8)),
+      #   # panel.grid.minor.x = element_blank(),
+      #   # panel.grid.major.x = element_blank(),
+      #   # axis.line.y = element_blank(),
+      #   # panel.grid.minor = element_blank(),
+      #   # plot.title = element_text(face = "bold", hjust = 0.5),
+      #   # legend.text = element_text(face = "bold", size = rel(1.2)),
+      #   # 
+      #   # axis.text.x = element_text(face = "bold", size = rel(1), angle = 0),
+      #   # axis.text.y = element_text(face = "bold", size = rel(1))
+      # )
+  })
   # download plot via handler
   output$download_image <- downloadHandler(
     filename = function(){
       # supply state names and paste on filetype
       paste(
-        paste(input$country, input$holiday_type, sep = '_'),
+        paste(input$country, input$holiday_type, input$dat_erange[1],input$dat_erange[2], sep = '_'),
         '.jpeg', sep = ''
       )
     },

@@ -1,0 +1,317 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={TidyTuesday: Number of World Heritage sites},
+  pdfauthor={Akhapwoya},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{TidyTuesday: Number of World Heritage sites}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{2024/2024-02-06}
+\author{Akhapwoya}
+\date{2024-12-10}
+
+\begin{document}
+\maketitle
+
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{6}
+\tableofcontents
+}
+\newpage
+
+\section{Introduction}\label{introduction}
+
+This week we're exploring a very small subset of
+\href{https://whc.unesco.org/en/list}{UNESCO World Heritage Sites}. The
+\href{https://100.datavizproject.com/}{1 dataset, 100 visualizations
+project} used this dataset to explore different ways of visualizing a
+simple dataset.
+
+\section{EDA}\label{eda}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\FunctionTok{library}\NormalTok{(readr)}
+\FunctionTok{library}\NormalTok{(RColorBrewer)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{heritage }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"heritage.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{The Data}\label{the-data}
+
+\subsubsection{Data Dictionary}\label{data-dictionary}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  country: Country
+\item
+  2004: Number of UNESCO World Heritage sites in 2004
+\item
+  2022: Number of UNESCO World Heritage sites in 2022
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\CommentTok{\# Option 1: tidytuesdayR package }
+\DocumentationTok{\#\# install.packages("tidytuesdayR")}
+
+\NormalTok{tuesdata }\OtherTok{\textless{}{-}}\NormalTok{ tidytuesdayR}\SpecialCharTok{::}\FunctionTok{tt\_load}\NormalTok{(}\StringTok{\textquotesingle{}2024{-}02{-}06\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\DocumentationTok{\#\# OR}
+\NormalTok{tuesdata }\OtherTok{\textless{}{-}}\NormalTok{ tidytuesdayR}\SpecialCharTok{::}\FunctionTok{tt\_load}\NormalTok{(}\DecValTok{2024}\NormalTok{, }\AttributeTok{week =} \DecValTok{6}\NormalTok{)}
+\NormalTok{heritage }\OtherTok{\textless{}{-}}\NormalTok{ tuesdata}\SpecialCharTok{$}\NormalTok{heritage}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\CommentTok{\# Option 2: Read directly from GitHub}
+\NormalTok{heritage }\OtherTok{\textless{}{-}}\NormalTok{ readr}\SpecialCharTok{::}\FunctionTok{read\_csv}\NormalTok{(}\StringTok{\textquotesingle{}https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024{-}02{-}06/heritage.csv\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+
+\subsection{Stacked bar chart of the number of World Heritage sites in
+Denmark, Norway and Sweden in 2004 and
+2022}\label{stacked-bar-chart-of-the-number-of-world-heritage-sites-in-denmark-norway-and-sweden-in-2004-and-2022}
+
+There are more sites in each country in 2022 than 2004, 4 and 10 in
+Denmark, 5 and 8 in Norway, 13 and 15 in Sweden respectively.
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\CommentTok{\# png("bar1.png", height=15, width=15, units="cm", res = 300)}
+\FunctionTok{barplot}\NormalTok{(}
+  \FunctionTok{as.matrix}\NormalTok{(heritage[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]), }\AttributeTok{beside=}\ConstantTok{TRUE}\NormalTok{,}
+  \AttributeTok{legend.text=}\NormalTok{heritage}\SpecialCharTok{$}\NormalTok{country,}
+  \AttributeTok{args.legend=}\FunctionTok{list}\NormalTok{(}\AttributeTok{bty=}\StringTok{"n"}\NormalTok{,}\AttributeTok{horiz=}\ConstantTok{TRUE}\NormalTok{),}
+  \AttributeTok{col=}\FunctionTok{brewer.pal}\NormalTok{(}\DecValTok{3}\NormalTok{,}\StringTok{"Set1"}\NormalTok{),}
+  \AttributeTok{border=}\StringTok{"white"}\NormalTok{,}\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{20}\NormalTok{),}
+  \CommentTok{\#ylab="",}
+  \AttributeTok{main=}\StringTok{"number of World Heritage sites"}\NormalTok{)}
+\FunctionTok{box}\NormalTok{(}\AttributeTok{bty=}\StringTok{"l"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{heritages_report_files/figure-latex/unnamed-chunk-7-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\CommentTok{\# dev.off()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\CommentTok{\# png("bar2.png", height=15, width=15, units="cm", res = 300)}
+\FunctionTok{barplot}\NormalTok{(}
+  \FunctionTok{as.matrix}\NormalTok{(heritage[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]), }\AttributeTok{beside=}\ConstantTok{TRUE}\NormalTok{,}\AttributeTok{horiz=}\ConstantTok{TRUE}\NormalTok{,}
+  \AttributeTok{legend.text=}\NormalTok{heritage}\SpecialCharTok{$}\NormalTok{country, }
+  \AttributeTok{args.legend=}\FunctionTok{list}\NormalTok{(}\AttributeTok{bty=}\StringTok{"n"}\NormalTok{),}
+  \AttributeTok{col =} \FunctionTok{brewer.pal}\NormalTok{(}\DecValTok{3}\NormalTok{,}\StringTok{"Set1"}\NormalTok{),}\AttributeTok{border=}\StringTok{"white"}\NormalTok{,}
+  \AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{20}\NormalTok{), }
+  \CommentTok{\#xlab="",}
+  \AttributeTok{main=}\StringTok{"number of World Heritage sites"}\NormalTok{)}
+\FunctionTok{box}\NormalTok{(}\AttributeTok{bty=}\StringTok{"l"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{heritages_report_files/figure-latex/unnamed-chunk-8-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\CommentTok{\# dev.off()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\CommentTok{\# png("bar3.png", height=15, width=15, units="cm", res = 300)}
+\NormalTok{x }\OtherTok{=} \FunctionTok{barplot}\NormalTok{(}
+  \FunctionTok{as.matrix}\NormalTok{(heritage[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]), }\AttributeTok{beside=}\ConstantTok{TRUE}\NormalTok{,}
+  \AttributeTok{legend.text =}\NormalTok{ heritage}\SpecialCharTok{$}\NormalTok{country, }
+  \AttributeTok{args.legend=}\FunctionTok{list}\NormalTok{(}\AttributeTok{bty=}\StringTok{"n"}\NormalTok{,}\AttributeTok{horiz=}\ConstantTok{TRUE}\NormalTok{),}
+  \AttributeTok{col=}\FunctionTok{brewer.pal}\NormalTok{(}\DecValTok{3}\NormalTok{,}\StringTok{"Set1"}\NormalTok{),}\AttributeTok{border=}\StringTok{"white"}\NormalTok{,}
+  \AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{20}\NormalTok{),}
+  \AttributeTok{main=}\StringTok{"number of World Heritage sites"}\NormalTok{)}
+\NormalTok{y }\OtherTok{=} \FunctionTok{as.matrix}\NormalTok{(heritage[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{])}
+\FunctionTok{text}\NormalTok{(x,y}\DecValTok{{-}3}\NormalTok{,}\AttributeTok{labels=}\FunctionTok{as.character}\NormalTok{(y))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{heritages_report_files/figure-latex/unnamed-chunk-9-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\CommentTok{\# dev.off()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\FunctionTok{png}\NormalTok{(}\StringTok{"bar1.png"}\NormalTok{, }\AttributeTok{height=}\DecValTok{15}\NormalTok{, }\AttributeTok{width=}\DecValTok{15}\NormalTok{, }\AttributeTok{units=}\StringTok{"cm"}\NormalTok{, }\AttributeTok{res =} \DecValTok{300}\NormalTok{)}
+\FunctionTok{barplot}\NormalTok{(}
+  \FunctionTok{as.matrix}\NormalTok{(heritage[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]), }\AttributeTok{beside=}\ConstantTok{TRUE}\NormalTok{,}
+  \AttributeTok{legend.text=}\NormalTok{heritage}\SpecialCharTok{$}\NormalTok{country,}
+  \AttributeTok{args.legend=}\FunctionTok{list}\NormalTok{(}\AttributeTok{bty=}\StringTok{"n"}\NormalTok{,}\AttributeTok{horiz=}\ConstantTok{TRUE}\NormalTok{),}
+  \AttributeTok{col=}\FunctionTok{brewer.pal}\NormalTok{(}\DecValTok{3}\NormalTok{,}\StringTok{"Set1"}\NormalTok{),}
+  \AttributeTok{border=}\StringTok{"white"}\NormalTok{,}\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{20}\NormalTok{),}
+  \CommentTok{\#ylab="",}
+  \AttributeTok{main=}\StringTok{"number of World Heritage sites"}\NormalTok{)}
+\FunctionTok{box}\NormalTok{(}\AttributeTok{bty=}\StringTok{"l"}\NormalTok{)}
+\FunctionTok{dev.off}\NormalTok{()}
+\CommentTok{\#}
+\FunctionTok{png}\NormalTok{(}\StringTok{"bar2.png"}\NormalTok{, }\AttributeTok{height=}\DecValTok{15}\NormalTok{, }\AttributeTok{width=}\DecValTok{15}\NormalTok{, }\AttributeTok{units=}\StringTok{"cm"}\NormalTok{, }\AttributeTok{res =} \DecValTok{300}\NormalTok{)}
+\FunctionTok{barplot}\NormalTok{(}
+  \FunctionTok{as.matrix}\NormalTok{(heritage[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]), }\AttributeTok{beside=}\ConstantTok{TRUE}\NormalTok{,}\AttributeTok{horiz=}\ConstantTok{TRUE}\NormalTok{,}
+  \AttributeTok{legend.text=}\NormalTok{heritage}\SpecialCharTok{$}\NormalTok{country, }
+  \AttributeTok{args.legend=}\FunctionTok{list}\NormalTok{(}\AttributeTok{bty=}\StringTok{"n"}\NormalTok{),}
+  \AttributeTok{col =} \FunctionTok{brewer.pal}\NormalTok{(}\DecValTok{3}\NormalTok{,}\StringTok{"Set1"}\NormalTok{),}\AttributeTok{border=}\StringTok{"white"}\NormalTok{,}
+  \AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{20}\NormalTok{), }
+  \CommentTok{\#xlab="",}
+  \AttributeTok{main=}\StringTok{"number of World Heritage sites"}\NormalTok{)}
+\FunctionTok{box}\NormalTok{(}\AttributeTok{bty=}\StringTok{"l"}\NormalTok{)}
+\FunctionTok{dev.off}\NormalTok{()}
+\CommentTok{\#}
+\FunctionTok{png}\NormalTok{(}\StringTok{"bar3.png"}\NormalTok{, }\AttributeTok{height=}\DecValTok{15}\NormalTok{, }\AttributeTok{width=}\DecValTok{15}\NormalTok{, }\AttributeTok{units=}\StringTok{"cm"}\NormalTok{, }\AttributeTok{res =} \DecValTok{300}\NormalTok{)}
+\NormalTok{x }\OtherTok{=} \FunctionTok{barplot}\NormalTok{(}
+  \FunctionTok{as.matrix}\NormalTok{(heritage[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]), }\AttributeTok{beside=}\ConstantTok{TRUE}\NormalTok{,}
+  \AttributeTok{legend.text =}\NormalTok{ heritage}\SpecialCharTok{$}\NormalTok{country, }
+  \AttributeTok{args.legend=}\FunctionTok{list}\NormalTok{(}\AttributeTok{bty=}\StringTok{"n"}\NormalTok{,}\AttributeTok{horiz=}\ConstantTok{TRUE}\NormalTok{),}
+  \AttributeTok{col=}\FunctionTok{brewer.pal}\NormalTok{(}\DecValTok{3}\NormalTok{,}\StringTok{"Set1"}\NormalTok{),}\AttributeTok{border=}\StringTok{"white"}\NormalTok{,}
+  \AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{20}\NormalTok{),}
+  \AttributeTok{main=}\StringTok{"number of World Heritage sites"}\NormalTok{)}
+\NormalTok{y }\OtherTok{=} \FunctionTok{as.matrix}\NormalTok{(heritage[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{])}
+\FunctionTok{text}\NormalTok{(x,y}\DecValTok{{-}3}\NormalTok{,}\AttributeTok{labels=}\FunctionTok{as.character}\NormalTok{(y))}
+\FunctionTok{dev.off}\NormalTok{()}
+\CommentTok{\#}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
