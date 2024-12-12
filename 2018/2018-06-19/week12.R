@@ -60,7 +60,7 @@ week12_mediacloud_top_online_news <- tuesdata$week12_mediacloud_top_online_news
 #
 week12_mediacloud_trump <- tuesdata$week12_mediacloud_trump |>
   mutate(
-    Date = mdy(Date)#col_date(format = "%m/%d/%y")
+    Date = ymd(Date)#col_date(format = "%m/%d/%y")
   ) |>
   clean_names()
 
