@@ -14,4 +14,5 @@
 data/*
 !/2018/2018-04-02/data/state_admission_rate_avg.csv
 !/2018/2018-04-30/acs2015_census_tract_data.csv
+!/2018/2018-05-21/honeyproduction.csv
 2020/2020-05-05/villagerdb-master/data/*
