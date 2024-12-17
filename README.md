@@ -22,6 +22,14 @@ Data with Shiny Apps.
 | 12 | `2018-06-19` | [Hurricanes & Puerto Rico](2018-06-19) | [FiveThirtyEight package](https://github.com/rudeboybert/fivethirtyeight) | [FiveThirtyEight.com](https://fivethirtyeight.com/features/the-media-really-has-neglected-puerto-rico/) |
 | 13 | `2018-06-26` | [Alcohol Consumption](2018/2018-06-26) | [FiveThirtyEight package](https://github.com/rudeboybert/fivethirtyeight) | [FiveThirtyEight.com](https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/) |
 
+# 2020 Data
+
+Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTuesday` events.
+
+| Week | Date | Data | Source | Article |
+|:-------------:|:-------------:|:--------------|:--------------|:--------------|
+| 3 | `2020-01-14` | [Passwords](2022/2020-01-14) | [Knowledge is Beautiful](https://docs.google.com/spreadsheets/d/1cz7TDhm0ebVpySqbTvrHrD3WpxeyE4hLZtifWSnoNTQ/edit#gid=21) | [Information is Beautiful](https://informationisbeautiful.net/visualizations/top-500-passwords-visualized/) |
+
 # 2022 Data
 
 Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTuesday` events.

@@ -1,6 +1,4 @@
-![https://xkcd.com/936/](https://imgs.xkcd.com/comics/password_strength.png)
-### [XKCD Source for Comic](https://xkcd.com/936/)
-
+![https://xkcd.com/936/](https://imgs.xkcd.com/comics/password_strength.png) \### [XKCD Source for Comic](https://xkcd.com/936/)
 
 # Passwords
 
@@ -30,18 +28,23 @@ tuesdata <- tidytuesdayR::tt_load(2020, week = 3)
 
 passwords <- tuesdata$passwords
 ```
+
 ### Data Dictionary
 
 # `passwords.csv`
 
-|variable          |class     |description |
-|:-----------------|:---------|:-----------|
-|rank              |double    | popularity in their database of released passwords |
-|password          |character | Actual text of the password |
-|category          |character | What category does the password fall in to?|
-|value             |double    | Time to crack by online guessing |
-|time_unit         |character | Time unit to match with value |
-|offline_crack_sec |double    | Time to crack offline in seconds |
-|rank_alt          |double    | Rank 2 |
-|strength          |double    | Strength = quality of password where 10 is highest, 1 is lowest, please note that these are relative to these generally bad passwords |
-|font_size         |double    | Used to create the graphic for KIB |
+| variable | class | description |
+|:-------------------------------|:-----------------|:---------------------|
+| rank | double | popularity in their database of released passwords |
+| password | character | Actual text of the password |
+| category | character | What category does the password fall in to? |
+| value | double | Time to crack by online guessing |
+| time_unit | character | Time unit to match with value |
+| offline_crack_sec | double | Time to crack offline in seconds |
+| rank_alt | double | Rank 2 |
+| strength | double | Strength = quality of password where 10 is highest, 1 is lowest, please note that these are relative to these generally bad passwords |
+| font_size | double | Used to create the graphic for KIB |
+
+### My Visuals
+
+![Password Strength (1:10) by Password Category](cat_strength_plot.png)
