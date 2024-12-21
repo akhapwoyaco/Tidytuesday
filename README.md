@@ -30,7 +30,8 @@ Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTues
 |:--:|:--:|:---|:---|:---|
 | 3 | `2020-01-14` | [Passwords](2020/2020-01-14) | [Knowledge is Beautiful](https://docs.google.com/spreadsheets/d/1cz7TDhm0ebVpySqbTvrHrD3WpxeyE4hLZtifWSnoNTQ/edit#gid=21) | [Information is Beautiful](https://informationisbeautiful.net/visualizations/top-500-passwords-visualized/) |
 | 8 | `2020-02-18` | [Food's Carbon Footprint](2020/2020-02-18) | [nu3](https://www.nu3.de/blogs/nutrition/food-carbon-footprint-index-2018) | [`r-tastic` by Kasia Kulma](https://r-tastic.co.uk/post/from-messy-to-tidy/) |
-| 42 | `2020-10-13` | [`datasauRus` dozen](2020-10-13/readme.md) | [Alberto Cairo](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html) | [`datasauRus` R package](https://cran.r-project.org/web/packages/datasauRus/vignettes/Datasaurus.html) |
+| 32 | `2020-08-04` | [European Energy](2020/2020-08-04/readme.md) | [Eurostat Energy](https://ec.europa.eu/eurostat/statistics-explained/index.php/Electricity_generation_statistics_%E2%80%93_first_results) | [Washington Post Energy](https://www.washingtonpost.com/climate-environment/2020/07/30/biden-calls-100-percent-clean-electricity-by-2035-heres-how-far-we-have-go/?arc404=true&utm_medium=social&utm_source=twitter&utm_campaign=wp_graphics) |
+| 42 | `2020-10-13` | [`datasauRus` dozen](2020/2020-10-13/readme.md) | [Alberto Cairo](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html) | [`datasauRus` R package](https://cran.r-project.org/web/packages/datasauRus/vignettes/Datasaurus.html) |
 
 # 2022 Data
 
@@ -38,7 +39,7 @@ Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTues
 
 | Week | Date | Data | Source | Article |
 |:--:|:--:|:---|:---|:---|
-| 3 | `2022-01-18` | [Chocolate Bar ratings](2022-01-18/readme.md) | [Flavors of Cacao](http://flavorsofcacao.com/chocolate_database.html) | [Will Canniford on Kaggle](https://www.kaggle.com/willcanniford/chocolate-bar-ratings-extensive-eda) |
+| 3 | `2022-01-18` | [Chocolate Bar ratings](2022/2022-01-18/readme.md) | [Flavors of Cacao](http://flavorsofcacao.com/chocolate_database.html) | [Will Canniford on Kaggle](https://www.kaggle.com/willcanniford/chocolate-bar-ratings-extensive-eda) |
 
 # 2021 Data
 

@@ -182,3 +182,7 @@ write_csv(country_totals, "2020/2020-08-04/country_totals.csv")
 write_csv(country_production, "2020/2020-08-04/energy_types.csv")
 
 ```
+
+## plot
+
+![Energy Production in Europe: 2017](plot2017.png)
