@@ -28,7 +28,7 @@ state_name_etymology <- readr::read_csv('https://raw.githubusercontent.com/rford
 # `states.csv`
 
 | variable | class | description |
-|:---|:---|:---|
+|:--------------------------|:-----------------|:--------------------------|
 | state | character | The name of the state. The Wikipedia article has footnotes pointing out that Kentucky, Massachusetts, Pennsylvania, and Virginia are officially "commonwealths" in their full official names, not states. |
 | postal_abbreviation | character | The 2-letter postal abbreviation. |
 | capital_city | character | The capital of the state. |
@@ -47,7 +47,7 @@ state_name_etymology <- readr::read_csv('https://raw.githubusercontent.com/rford
 # `state_name_etymology.csv`
 
 | variable | class | description |
-|:---|:---|:---|
+|:--------------------------|:-----------------|:--------------------------|
 | state | character | The name of the state. |
 | date_named | date | The date on which the name (or a version of the name that led to the modern version) was first attested. Note: Colorado is shown as occurring on January 1, but only the year is known. |
 | language | character | The language from which the state name is believed to have been derived. Note that some states have more than one entry, in more than one row! |
@@ -162,3 +162,5 @@ write_csv(
 ## Visualization
 
 ![Date on which the name was first attested.](state_name_plot.jpeg)
+
+![Date when the state was admitted to the union/ratified the US Constitution](state_admission_plot.jpeg)
