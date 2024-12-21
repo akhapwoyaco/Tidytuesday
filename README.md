@@ -11,7 +11,7 @@ Shiny Apps and Data Analysis of TidyTuesday datasets
 Data with Shiny Apps.
 
 | Week | Date | Data | Source | Article |
-|:--:|:--:|:---|:---|:---|
+|:-------------:|:-------------:|:--------------|:--------------|:--------------|
 | 1 | `2018-04-03` | [US Tuition Costs](2018/2018-04-02) | [onlinembapage.com](https://onlinembapage.com/average-tuition-and-educational-attainment-in-the-united-states/) | [onlinembapage.com](https://onlinembapage.com/wp-content/uploads/2016/03/AverageTuition_Part1b.jpg) |
 | 3 | `2018-04-17` | [Global Mortality](2018/2018-04-16) | [ourworldindata.org](https://ourworldindata.org/) | [ourworldindata.org](https://ourworldindata.org/what-does-the-world-die-from) |
 | 5 | `2018-05-01` | [ACS Census Data (2015)](2018/2018-04-30) | [census.gov](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) , [Kaggle](https://www.kaggle.com/muonneutrino/us-census-demographic-data) | No article |
@@ -27,7 +27,7 @@ Data with Shiny Apps.
 Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTuesday` events.
 
 | Week | Date | Data | Source | Article |
-|:--:|:--:|:---|:---|:---|
+|:-------------:|:-------------:|:--------------|:--------------|:--------------|
 | 3 | `2020-01-14` | [Passwords](2020/2020-01-14) | [Knowledge is Beautiful](https://docs.google.com/spreadsheets/d/1cz7TDhm0ebVpySqbTvrHrD3WpxeyE4hLZtifWSnoNTQ/edit#gid=21) | [Information is Beautiful](https://informationisbeautiful.net/visualizations/top-500-passwords-visualized/) |
 | 8 | `2020-02-18` | [Food's Carbon Footprint](2020/2020-02-18) | [nu3](https://www.nu3.de/blogs/nutrition/food-carbon-footprint-index-2018) | [`r-tastic` by Kasia Kulma](https://r-tastic.co.uk/post/from-messy-to-tidy/) |
 | 32 | `2020-08-04` | [European Energy](2020/2020-08-04/readme.md) | [Eurostat Energy](https://ec.europa.eu/eurostat/statistics-explained/index.php/Electricity_generation_statistics_%E2%80%93_first_results) | [Washington Post Energy](https://www.washingtonpost.com/climate-environment/2020/07/30/biden-calls-100-percent-clean-electricity-by-2035-heres-how-far-we-have-go/?arc404=true&utm_medium=social&utm_source=twitter&utm_campaign=wp_graphics) |
@@ -38,7 +38,7 @@ Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTues
 Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTuesday` events.
 
 | Week | Date | Data | Source | Article |
-|:--:|:--:|:---|:---|:---|
+|:-------------:|:-------------:|:--------------|:--------------|:--------------|
 | 3 | `2022-01-18` | [Chocolate Bar ratings](2022/2022-01-18/readme.md) | [Flavors of Cacao](http://flavorsofcacao.com/chocolate_database.html) | [Will Canniford on Kaggle](https://www.kaggle.com/willcanniford/chocolate-bar-ratings-extensive-eda) |
 
 # 2021 Data
@@ -46,15 +46,23 @@ Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTues
 Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTuesday` events.
 
 | Week | Date | Data | Source | Article |
-|:--:|:--:|:---|:---|:---|
+|:-------------:|:-------------:|:--------------|:--------------|:--------------|
 | 23 | `2021-06-01` | [Survivor TV Show](2021/2021-06-01) | [`survivoR` Package](https://github.com/doehm/survivoR) | [Daniel's Oehm's Website](http://gradientdescending.com/survivor-data-from-the-tv-series-in-r/) |
+
+# 2023 Data
+
+Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTuesday` events.
+
+| Week | Date | Data | Source | Article |
+|:-------------:|:-------------:|:--------------|:--------------|:--------------|
+| 31 | `2023-08-01` | [US States](2023/2023-08-01/readme.md) | [List of states and territories of the United States](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States), [List of demonyms for US states and territories](https://en.wikipedia.org/wiki/List_of_demonyms_for_US_states_and_territories), and [List of state and territory name etymologies of the United States](https://en.wikipedia.org/wiki/List_of_state_and_territory_name_etymologies_of_the_United_States) | [List of states and territories of the United States](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States) |
 
 ## 2024 Data
 
 Datasets with Shiny Apps, Data Visualizations from the 2024 series of `#TidyTuesday` events.
 
 | Week | Date | Data | Source | Article |
-|:--:|:--:|:---|:---|:---|
+|:-------------:|:-------------:|:--------------|:--------------|:--------------|
 | 4 | `2024-01-23` | [Educational attainment of young people in English towns](2024/2024-01-23) | [The UK Office for National Statistics](https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/educationandchildcare/datasets/educationalattainmentofyoungpeopleinenglishtownsdata/200708201819/youngpeoplesattainmentintownsreferencetable1.xlsx) | [Why do children and young people in smaller towns do better academically than those in larger towns?](https://www.ons.gov.uk/peoplepopulationandcommunity/educationandchildcare/articles/whydochildrenandyoungpeopleinsmallertownsdobetteracademicallythanthoseinlargertowns/2023-07-25) |
 | 6 | `2024-02-06` | [World heritage sites](2024/2024-02-06) | [UNESCO World Heritage Sites](https://whc.unesco.org/en/list) | [1 dataset 100 visualizations](https://100.datavizproject.com/) |
 | 14 | `2024-04-02` | [Du Bois Visualization Challenge 2024](2024/2024-04-02) | [Week 10 Data](https://raw.githubusercontent.com/ajstarks/dubois-data-portraits/master/challenge/2024/challenge10/data.csv) | [Du Bois Visualization Challenge: 2024](https://github.com/ajstarks/dubois-data-portraits/blob/master/challenge/2024/README.md) |

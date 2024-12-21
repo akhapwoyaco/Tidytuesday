@@ -44,34 +44,36 @@ energy_types <- readr::read_csv('https://raw.githubusercontent.com/rfordatascien
 country_totals <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-08-04/country_totals.csv')
 
 ```
+
 ### Data Dictionary
 
-Limited to Level 1 or 2 production by type - either conventional thermal (fossil fuels), nuclear, hydro, wind, solar, geothermal, or other. 
+Limited to Level 1 or 2 production by type - either conventional thermal (fossil fuels), nuclear, hydro, wind, solar, geothermal, or other.
 
 # `energy_types`
-|variable     |class     |description |
-|:------------|:---------|:-----------|
-|country      |character |Country ID |
-|country_name |character | Country name |
-|type         |character | Type of energy production |
-|level        |character | Level - either total, level 1 or level 2. Where level 2 makes up level 1 that makes up the total. |
-|2016         |double    | Energy in GWh (Gigawatt hours) |
-|2017         |double    | Energy in GWh (Gigawatt hours) |
-|2018         |double    | Energy in GWh (Gigawatt hours) |
+
+| variable | class | description |
+|:---|:---|:---|
+| country | character | Country ID |
+| country_name | character | Country name |
+| type | character | Type of energy production |
+| level | character | Level - either total, level 1 or level 2. Where level 2 makes up level 1 that makes up the total. |
+| 2016 | double | Energy in GWh (Gigawatt hours) |
+| 2017 | double | Energy in GWh (Gigawatt hours) |
+| 2018 | double | Energy in GWh (Gigawatt hours) |
 
 # `country_totals`
 
 Limited to total net production, along with imports, exports, energy lost, and energy supplied (net + import - export - energy absorbed by pumping).
 
-|variable     |class     |description |
-|:------------|:---------|:-----------|
-|country      |character |Country ID |
-|country_name |character | Country name |
-|type         |character | Type of energy production |
-|level        |character | Level - either total, level 1 or level 2. Where level 2 makes up level 1 that makes up the total. |
-|2016         |double    | Energy in GWh (Gigawatt hours) |
-|2017         |double    | Energy in GWh (Gigawatt hours) |
-|2018         |double    | Energy in GWh (Gigawatt hours) |
+| variable | class | description |
+|:---|:---|:---|
+| country | character | Country ID |
+| country_name | character | Country name |
+| type | character | Type of energy production |
+| level | character | Level - either total, level 1 or level 2. Where level 2 makes up level 1 that makes up the total. |
+| 2016 | double | Energy in GWh (Gigawatt hours) |
+| 2017 | double | Energy in GWh (Gigawatt hours) |
+| 2018 | double | Energy in GWh (Gigawatt hours) |
 
 ### Cleaning Script
 

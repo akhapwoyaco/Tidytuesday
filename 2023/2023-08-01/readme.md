@@ -1,9 +1,8 @@
-# US State Names 
+# US State Names
 
 Happy [Colorado Day](https://www.timeanddate.com/holidays/us/colorado-day)! The data this week comes from three Wikipedia articles: [List of states and territories of the United States](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States), [List of demonyms for US states and territories](https://en.wikipedia.org/wiki/List_of_demonyms_for_US_states_and_territories), and [List of state and territory name etymologies of the United States](https://en.wikipedia.org/wiki/List_of_state_and_territory_name_etymologies_of_the_United_States).
 
-A number of past TidyTuesdays (such as 
-[2018/2018-04-03](https://tidytues.day/2018/2018-04-03), [2019/2019-01-29](https://tidytues.day/2019/2019-01-29), [2020/2020-03-10](https://tidytues.day/2020/2020-03-10), and [2022/2022-11-08](https://tidytues.day/2022/2022-11-08) have state columns. Might joining in this state date offer any insights to those datasets?
+A number of past TidyTuesdays (such as [2018/2018-04-03](https://tidytues.day/2018/2018-04-03), [2019/2019-01-29](https://tidytues.day/2019/2019-01-29), [2020/2020-03-10](https://tidytues.day/2020/2020-03-10), and [2022/2022-11-08](https://tidytues.day/2022/2022-11-08) have state columns. Might joining in this state date offer any insights to those datasets?
 
 ## The Data
 
@@ -28,33 +27,32 @@ state_name_etymology <- readr::read_csv('https://raw.githubusercontent.com/rford
 
 # `states.csv`
 
-|variable            |class     |description         |
-|:-------------------|:---------|:-------------------|
-|state               |character |The name of the state. The Wikipedia article has footnotes pointing out that Kentucky, Massachusetts, Pennsylvania, and Virginia are officially "commonwealths" in their full official names, not states. |
-|postal_abbreviation |character |The 2-letter postal abbreviation. |
-|capital_city        |character |The capital of the state. |
-|largest_city        |character |The largest city in the state as of 2020. |
-|admission           |date      |The date when the state was admitted to the union, or when it ratified the US Constitution. |
-|population_2020     |integer   |The population as of the 2020 census. |
-|total_area_mi2      |integer   |The total area of the state in square miles. |
-|total_area_km2      |integer   |The total area of the state in square kilometers. |
-|land_area_mi2       |integer   |The area of the state that is on land in square miles. |
-|land_area_km2       |integer   |The area of the state that is on land in square kilometers. |
-|water_area_mi2      |integer   |The area of the state occupied by water in square miles. |
-|water_area_km2      |integer   |The area of the state occupied by water in square kilometers. |
-|n_representatives   |integer   |The number of representatives the state has in the US House of Representatives. |
-|demonym             |character |The official name of a resident of the state. |
+| variable | class | description |
+|:---|:---|:---|
+| state | character | The name of the state. The Wikipedia article has footnotes pointing out that Kentucky, Massachusetts, Pennsylvania, and Virginia are officially "commonwealths" in their full official names, not states. |
+| postal_abbreviation | character | The 2-letter postal abbreviation. |
+| capital_city | character | The capital of the state. |
+| largest_city | character | The largest city in the state as of 2020. |
+| admission | date | The date when the state was admitted to the union, or when it ratified the US Constitution. |
+| population_2020 | integer | The population as of the 2020 census. |
+| total_area_mi2 | integer | The total area of the state in square miles. |
+| total_area_km2 | integer | The total area of the state in square kilometers. |
+| land_area_mi2 | integer | The area of the state that is on land in square miles. |
+| land_area_km2 | integer | The area of the state that is on land in square kilometers. |
+| water_area_mi2 | integer | The area of the state occupied by water in square miles. |
+| water_area_km2 | integer | The area of the state occupied by water in square kilometers. |
+| n_representatives | integer | The number of representatives the state has in the US House of Representatives. |
+| demonym | character | The official name of a resident of the state. |
 
 # `state_name_etymology.csv`
 
-|variable          |class     |description       |
-|:-----------------|:---------|:-----------------|
-|state             |character |The name of the state. |
-|date_named        |date      |The date on which the name (or a version of the name that led to the modern version) was first attested. Note: Colorado is shown as occurring on January 1, but only the year is known. |
-|language          |character |The language from which the state name is believed to have been derived. Note that some states have more than one entry, in more than one row! |
-|words_in_original |character |The word or words in the original language that became the state name. This field has footnotes in the original Wikipedia article. |
-|meaning           |character |The meaning of the original words. This field has footnotes in the original Wikipedia article. |
-
+| variable | class | description |
+|:---|:---|:---|
+| state | character | The name of the state. |
+| date_named | date | The date on which the name (or a version of the name that led to the modern version) was first attested. Note: Colorado is shown as occurring on January 1, but only the year is known. |
+| language | character | The language from which the state name is believed to have been derived. Note that some states have more than one entry, in more than one row! |
+| words_in_original | character | The word or words in the original language that became the state name. This field has footnotes in the original Wikipedia article. |
+| meaning | character | The meaning of the original words. This field has footnotes in the original Wikipedia article. |
 
 ### Cleaning Script
 
@@ -161,8 +159,6 @@ write_csv(
 )
 ```
 
-## How to Participate
+## Visualization
 
-- [Explore the data](https://r4ds.hadley.nz/), watching out for interesting relationships. We would like to emphasize that you should not draw conclusions about **causation** in the data. There are various moderating variables that affect all data, many of which might not have been captured in these datasets. As such, our suggestion is to use the data provided to practice your data tidying and plotting techniques, and to consider for yourself what nuances might underlie these relationships.
-- Create a visualization, a model, a [shiny app](https://shiny.posit.co/), or some other piece of data-science-related output, using R or another programming language.
-- [Share your output and the code used to generate it](../../../sharing.md) on social media with the #TidyTuesday hashtag.
+![Date on which the name was first attested.](state_name_plot.jpeg)
