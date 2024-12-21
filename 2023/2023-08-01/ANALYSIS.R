@@ -1,7 +1,7 @@
-library(readr)
+library(tidyverse)
+tuesdata <- tidytuesdayR::tt_load(2023, week = 31)
 states <- tuesdata$states
 state_name_etymology <- tuesdata$state_name_etymology
-states <- tuesdata$states#
 
 state_name_plot = state_name_etymology |> 
   select(state, date_named) |>

@@ -56,6 +56,7 @@ Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTues
 | Week | Date | Data | Source | Article |
 |:-------------:|:-------------:|:--------------|:--------------|:--------------|
 | 31 | `2023-08-01` | [US States](2023/2023-08-01/readme.md) | [List of states and territories of the United States](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States), [List of demonyms for US states and territories](https://en.wikipedia.org/wiki/List_of_demonyms_for_US_states_and_territories), and [List of state and territory name etymologies of the United States](https://en.wikipedia.org/wiki/List_of_state_and_territory_name_etymologies_of_the_United_States) | [List of states and territories of the United States](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States) |
+| 50 | `2023-12-12` | [Holiday Movies](2023/2023-12-12/readme.md) | [IMDb non-commercial datasets](https://developer.imdb.com/non-commercial-datasets/) | [Christmas Movies blog](https://networkdatascience.ceu.edu/article/2019-12-16/christmas-movies))|
 
 ## 2024 Data
 
