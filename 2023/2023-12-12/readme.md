@@ -1,10 +1,8 @@
 # Holiday Movies
 
-Happy holidays!
-This week we're exploring "holiday" movies: movies with "holiday", "Christmas", "Hanukkah", or "Kwanzaa" (or variants thereof) in their title!
+Happy holidays! This week we're exploring "holiday" movies: movies with "holiday", "Christmas", "Hanukkah", or "Kwanzaa" (or variants thereof) in their title!
 
-The data this week comes from the [Internet Movie Database](https://developer.imdb.com/non-commercial-datasets/).
-We don't have an article using exactly this dataset, but you might get inspiration from this [Christmas Movies](https://networkdatascience.ceu.edu/article/2019-12-16/christmas-movies) blog post by Milán Janosov at Central European University.
+The data this week comes from the [Internet Movie Database](https://developer.imdb.com/non-commercial-datasets/). We don't have an article using exactly this dataset, but you might get inspiration from this [Christmas Movies](https://networkdatascience.ceu.edu/article/2019-12-16/christmas-movies) blog post by Milán Janosov at Central European University.
 
 ## The Data
 
@@ -29,30 +27,29 @@ holiday_movie_genres <- readr::read_csv('https://raw.githubusercontent.com/rford
 
 # `holiday_movies.csv`
 
-|variable        |class     |description     |
-|:---------------|:---------|:---------------|
-|tconst          |character |alphanumeric unique identifier of the title |
-|title_type      |character |the type/format of the title (movie, video, or tvMovie) |
-|primary_title   |character |the more popular title / the title used by the filmmakers on promotional materials at the point of release |
-|original_title  |character |original title, in the original language |
-|year            |double    |the release year of a title |
-|runtime_minutes |double    |primary runtime of the title, in minutes |
-|genres          |character |includes up to three genres associated with the title (comma-delimited) |
-|simple_title    |character |the title in lowercase, with punctuation removed, for easier filtering and grouping |
-|average_rating  |double    |weighted average of all the individual user ratings on IMDb |
-|num_votes       |double    |number of votes the title has received on IMDb (titles with fewer than 10 votes were not included in this dataset) |
-|christmas       |logical   |whether the title includes "christmas", "xmas", "x mas", etc|
-|hanukkah        |logical   |whether the title includes "hanukkah", "chanukah", etc|
-|kwanzaa         |logical   |whether the title includes "kwanzaa"|
-|holiday         |logical   |whether the title includes the word "holiday"|
+| variable | class | description |
+|:---|:---|:---|
+| tconst | character | alphanumeric unique identifier of the title |
+| title_type | character | the type/format of the title (movie, video, or tvMovie) |
+| primary_title | character | the more popular title / the title used by the filmmakers on promotional materials at the point of release |
+| original_title | character | original title, in the original language |
+| year | double | the release year of a title |
+| runtime_minutes | double | primary runtime of the title, in minutes |
+| genres | character | includes up to three genres associated with the title (comma-delimited) |
+| simple_title | character | the title in lowercase, with punctuation removed, for easier filtering and grouping |
+| average_rating | double | weighted average of all the individual user ratings on IMDb |
+| num_votes | double | number of votes the title has received on IMDb (titles with fewer than 10 votes were not included in this dataset) |
+| christmas | logical | whether the title includes "christmas", "xmas", "x mas", etc |
+| hanukkah | logical | whether the title includes "hanukkah", "chanukah", etc |
+| kwanzaa | logical | whether the title includes "kwanzaa" |
+| holiday | logical | whether the title includes the word "holiday" |
 
 # `holiday_movie_genres.csv`
 
-|variable |class     |description |
-|:--------|:---------|:-----------|
-|tconst   |character |alphanumeric unique identifier of the title |
-|genres   |character |genres associated with the title, one row per genre |
-
+| variable | class     | description                                         |
+|:---------|:----------|:----------------------------------------------------|
+| tconst   | character | alphanumeric unique identifier of the title         |
+| genres   | character | genres associated with the title, one row per genre |
 
 ### Cleaning Script
 
@@ -126,6 +123,6 @@ readr::write_csv(
 )
 ```
 
-#  Visualizations
+# Visualizations
 
 ![](runtime_ratings_holiday_movie.jpeg)
