@@ -18,3 +18,4 @@ data/*
 2020/2020-05-05/villagerdb-master/data/*
 *.log
 *.tex
+*.gz
