@@ -41,12 +41,7 @@ spam <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidyt
 |make     |double    | Occurrences of ‘make’, as a percent of total number of words       |
 |yesno    |character | Outcome variable, a factor with levels 'n' not spam, 'y' spam |
 
-### Cleaning Script
+### Cluster Analysis and Data Viz
 
-First column was removed. 
-
-## How to Participate
-
-- [Explore the data](https://r4ds.hadley.nz/), watching out for interesting relationships. We would like to emphasize that you should not draw conclusions about **causation** in the data. There are various moderating variables that affect all data, many of which might not have been captured in these datasets. As such, our suggestion is to use the data provided to practice your data tidying and plotting techniques, and to consider for yourself what nuances might underlie these relationships.
-- Create a visualization, a model, a [shiny app](https://shiny.posit.co/), or some other piece of data-science-related output, using R or another programming language.
-- [Share your output and the code used to generate it](../../../sharing.md) on social media with the #TidyTuesday hashtag.
+![cluster_plot1.jpeg](cluster_plot1.jpeg)
+![cluster_plot2.jpeg](cluster_plot2.jpeg)

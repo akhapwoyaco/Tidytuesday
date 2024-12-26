@@ -58,6 +58,7 @@ Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTues
 |:-------------:|:-------------:|:--------------|:--------------|:--------------|
 | 28 | `2023-07-11` | [Global Surface Temperatures](2023/2023-07-11/readme.md) | [NASA GISS Surface Temperature Analysis (GISTEMP v4)](https://data.giss.nasa.gov/gistemp/) | [Improvements in the GISTEMP Uncertainty Model](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2018JD029522) |
 | 31 | `2023-08-01` | [US States](2023/2023-08-01/readme.md) | [List of states and territories of the United States](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States), [List of demonyms for US states and territories](https://en.wikipedia.org/wiki/List_of_demonyms_for_US_states_and_territories), and [List of state and territory name etymologies of the United States](https://en.wikipedia.org/wiki/List_of_state_and_territory_name_etymologies_of_the_United_States) | [List of states and territories of the United States](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States) |
+| 33 | `2023-08-15` | [Spam E-mail](2023/2023-08-15) | [Spam e-mail](https://vincentarelbundock.github.io/Rdatasets/doc/DAAG/spam7.html) | [Spam email database](https://archive.ics.uci.edu/dataset/94/spambase)|
 | 50 | `2023-12-12` | [Holiday Movies](2023/2023-12-12/readme.md) | [IMDb non-commercial datasets](https://developer.imdb.com/non-commercial-datasets/) | [Christmas Movies blog](https://networkdatascience.ceu.edu/article/2019-12-16/christmas-movies)) |
 
 ## 2024 Data
