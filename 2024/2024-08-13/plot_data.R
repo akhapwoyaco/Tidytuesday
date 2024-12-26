@@ -1,3 +1,8 @@
+#
+tuesdata <- tidytuesdayR::tt_load(2024, week = 33)
+worlds_fairs <- tuesdata$worlds_fairs
+
+#
 worlds_fairs <- worlds_fairs |> 
   mutate(
     start_date = ym(paste(start_year, start_month, sep='')),

@@ -48,8 +48,7 @@ Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTues
 | Week | Date | Data | Source | Article |
 |:-------------:|:-------------:|:--------------|:--------------|:--------------|
 | 3 | `2022-01-18` | [Chocolate Bar ratings](2022/2022-01-18/readme.md) | [Flavors of Cacao](http://flavorsofcacao.com/chocolate_database.html) | [Will Canniford on Kaggle](https://www.kaggle.com/willcanniford/chocolate-bar-ratings-extensive-eda) |
-| 36 | `2022-09-06` | [LEGO database](2022/2022-09-06) |  [`rebrickable`](https://rebrickable.com/downloads/) | [`rebrickable`](https://rebrickable.com/downloads/) |
-
+| 36 | `2022-09-06` | [LEGO database](2022/2022-09-06) | [`rebrickable`](https://rebrickable.com/downloads/) | [`rebrickable`](https://rebrickable.com/downloads/) |
 
 # 2023 Data
 
@@ -58,7 +57,7 @@ Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTues
 | Week | Date | Data | Source | Article |
 |:-------------:|:-------------:|:--------------|:--------------|:--------------|
 | 31 | `2023-08-01` | [US States](2023/2023-08-01/readme.md) | [List of states and territories of the United States](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States), [List of demonyms for US states and territories](https://en.wikipedia.org/wiki/List_of_demonyms_for_US_states_and_territories), and [List of state and territory name etymologies of the United States](https://en.wikipedia.org/wiki/List_of_state_and_territory_name_etymologies_of_the_United_States) | [List of states and territories of the United States](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States) |
-| 50 | `2023-12-12` | [Holiday Movies](2023/2023-12-12/readme.md) | [IMDb non-commercial datasets](https://developer.imdb.com/non-commercial-datasets/) | [Christmas Movies blog](https://networkdatascience.ceu.edu/article/2019-12-16/christmas-movies))|
+| 50 | `2023-12-12` | [Holiday Movies](2023/2023-12-12/readme.md) | [IMDb non-commercial datasets](https://developer.imdb.com/non-commercial-datasets/) | [Christmas Movies blog](https://networkdatascience.ceu.edu/article/2019-12-16/christmas-movies)) |
 
 ## 2024 Data
 
@@ -70,4 +69,5 @@ Datasets with Shiny Apps, Data Visualizations from the 2024 series of `#TidyTues
 | 6 | `2024-02-06` | [World heritage sites](2024/2024-02-06) | [UNESCO World Heritage Sites](https://whc.unesco.org/en/list) | [1 dataset 100 visualizations](https://100.datavizproject.com/) |
 | 14 | `2024-04-02` | [Du Bois Visualization Challenge 2024](2024/2024-04-02) | [Week 10 Data](https://raw.githubusercontent.com/ajstarks/dubois-data-portraits/master/challenge/2024/challenge10/data.csv) | [Du Bois Visualization Challenge: 2024](https://github.com/ajstarks/dubois-data-portraits/blob/master/challenge/2024/README.md) |
 | 25 | `2024-06-18` | [US Federal Holidays](2024/2024-06-18) | [Wikipedia Federal holidays in the United States](https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States) | [Wikipedia Federal holidays in the United States](https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States) |
+| 33 | `2024-08-13` | [World's Fairs](2024-08-13) | [List of world expositions (Wikipedia)](https://en.wikipedia.org/wiki/List_of_world_expositions) | [World's fair (Wikipedia)](https://en.wikipedia.org/wiki/World%27s_fair) |
 | 52 | `2024-12-24` | [Global Holidays and Travel](2024/2024-12-24) | [WorldPop Hub](https://hub.worldpop.org/) | [Global holiday datasets for understanding seasonal human mobility and population dynamics](https://www.nature.com/articles/s41597-022-01120-z) |
