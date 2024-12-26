@@ -10,7 +10,7 @@ This week we're exploring historical emissions data from [Carbon Majors](https:/
 
 They share data with low, medium and high levels of granularity. This dataset is the 'medium' granularity that contains year, entity, entity type, commodity, commodity production, commodity unit, and total emissions.
 
-Are there any trends or changes that surprised you? 
+Are there any trends or changes that surprised you?
 
 ## The Data
 
@@ -30,29 +30,21 @@ emissions <- tuesdata$emissions
 emissions <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-05-21/emissions.csv')
 ```
 
-## How to Participate
-
-- [Explore the data](https://r4ds.hadley.nz/), watching out for interesting relationships. We would like to emphasize that you should not draw conclusions about **causation** in the data. There are various moderating variables that affect all data, many of which might not have been captured in these datasets. As such, our suggestion is to use the data provided to practice your data tidying and plotting techniques, and to consider for yourself what nuances might underlie these relationships.
-- Create a visualization, a model, a [shiny app](https://shiny.posit.co/), or some other piece of data-science-related output, using R or another programming language.
-- [Share your output and the code used to generate it](../../../sharing.md) on social media with the #TidyTuesday hashtag.
-
 ### Data Dictionary
 
 # `emissions.csv`
 
-|variable               |class     |description            |
-|:----------------------|:---------|:----------------------|
-|year                   |double    |The year of the data point     |
-|parent_entity          |character |The entity to whom the emissions are traced to          |
-|parent_type            |character |The type of parent_entity. Can be one of: investor-owned company, state-owned entity, nation state.     |
-|commodity              |character |Specifies which commodity the production refers to: Oil and NGL, Natural Gas, Anthracite Coal, Bituminous Coal, Lignite Coal, Metallurgical Coal, Sub-Bituminous Coal, Thermal Coal, or Cement.  |
-|production_value       |double    |The quantity of production    |
-|production_unit        |character |The unit of production (Oil & NGL - million barrels, Natural Gas - billion cubic feet, Coal - million tonnes, Cement - million tonnes CO2 (see methodology for explanation)). Units - Billion cubic feet per year (Bcf/yr), Million barrels per year (Million bbl/yr), or Million tonnes per year (Million tonnes/yr).  |
-|total_emissions_MtCO2e |double    |The total emissions traced to
-the 'parent_entity' in the 'year'. Units - million tonnes of carbon dioxide equivalent (MtCO2e). |
+| variable | class | description |
+|:---|:---|:---|
+| year | double | The year of the data point |
+| parent_entity | character | The entity to whom the emissions are traced to |
+| parent_type | character | The type of parent_entity. Can be one of: investor-owned company, state-owned entity, nation state. |
+| commodity | character | Specifies which commodity the production refers to: Oil and NGL, Natural Gas, Anthracite Coal, Bituminous Coal, Lignite Coal, Metallurgical Coal, Sub-Bituminous Coal, Thermal Coal, or Cement. |
+| production_value | double | The quantity of production |
+| production_unit | character | The unit of production (Oil & NGL - million barrels, Natural Gas - billion cubic feet, Coal - million tonnes, Cement - million tonnes CO2 (see methodology for explanation)). Units - Billion cubic feet per year (Bcf/yr), Million barrels per year (Million bbl/yr), or Million tonnes per year (Million tonnes/yr). |
+| total_emissions_MtCO2e | double | The total emissions traced to |
+| the 'parent_entity' in the 'year'. Units - million tonnes of carbon dioxide equivalent (MtCO2e). |  |  |
 
+### Visualization
 
-
-### Cleaning Script
-
-No data cleaning. Dataset is emissions_medium_granularity.csv from [https://carbonmajors.org/Downloads](https://carbonmajors.org/Downloads).
+![emissions_uncategorized](emissions_uncategorized.jpeg) ![emissions_categorized](emissions_categorized.jpeg)

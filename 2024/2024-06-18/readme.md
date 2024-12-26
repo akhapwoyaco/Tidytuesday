@@ -4,11 +4,9 @@ This week we're celebrating Juneteenth!
 
 > [Juneteenth National Independence Day] Commemorates the emancipation of enslaved people in the United States on the anniversary of the 1865 date when emancipation was announced in Galveston, Texas. Celebratory traditions often include readings of the Emancipation Proclamation, singing traditional songs, rodeos, street fairs, family reunions, cookouts, park parties, historical reenactments, and Miss Juneteenth contests.
 
-Juneteenth became a federal holiday in the United States on June 17, 2021.
-To commemorate this newest U.S. Federal Holiday, we're exploring the Wikipedia page about [Federal holidays in the United States](https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States).
+Juneteenth became a federal holiday in the United States on June 17, 2021. To commemorate this newest U.S. Federal Holiday, we're exploring the Wikipedia page about [Federal holidays in the United States](https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States).
 
-Which days of the week do federal holidays fall on this year?
-What is the longest gap between holidays this year? Is it different in other years?
+Which days of the week do federal holidays fall on this year? What is the longest gap between holidays this year? Is it different in other years?
 
 ## The Data
 
@@ -31,32 +29,35 @@ proposed_federal_holidays <- readr::read_csv('https://raw.githubusercontent.com/
 
 ## How to Participate
 
-- [Explore the data](https://r4ds.hadley.nz/), watching out for interesting relationships. We would like to emphasize that you should not draw conclusions about **causation** in the data. There are various moderating variables that affect all data, many of which might not have been captured in these datasets. As such, our suggestion is to use the data provided to practice your data tidying and plotting techniques, and to consider for yourself what nuances might underlie these relationships.
-- Create a visualization, a model, a [shiny app](https://shiny.posit.co/), or some other piece of data-science-related output, using R or another programming language.
-- [Share your output and the code used to generate it](../../../sharing.md) on social media with the #TidyTuesday hashtag.
+-   [Explore the data](https://r4ds.hadley.nz/), watching out for interesting relationships. We would like to emphasize that you should not draw conclusions about **causation** in the data. There are various moderating variables that affect all data, many of which might not have been captured in these datasets. As such, our suggestion is to use the data provided to practice your data tidying and plotting techniques, and to consider for yourself what nuances might underlie these relationships.
+-   Create a visualization, a model, a [shiny app](https://shiny.posit.co/), or some other piece of data-science-related output, using R or another programming language.
+-   [Share your output and the code used to generate it](../../../sharing.md) on social media with the #TidyTuesday hashtag.
 
 ### Data Dictionary
 
 # `federal_holidays.csv`
 
-|variable         |class     |description      |
-|:----------------|:---------|:----------------|
-|date             |character |The month and day or days when the holiday is celebrated. |
-|date_definition  |character |Whether the date is a "fixed date" or follows some other pattern. |
-|official_name    |character |The official name of the holiday. |
-|year_established |numeric   |The year in which the holiday was officially established as a federal holiday. |
-|date_established |Date      |The date on which the holiday was officially established as a federal holiday, if known. |
-|details          |character |Additional details about the holiday, from the Wikipedia article. |
+| variable | class | description |
+|:---|:---|:---|
+| date | character | The month and day or days when the holiday is celebrated. |
+| date_definition | character | Whether the date is a "fixed date" or follows some other pattern. |
+| official_name | character | The official name of the holiday. |
+| year_established | numeric | The year in which the holiday was officially established as a federal holiday. |
+| date_established | Date | The date on which the holiday was officially established as a federal holiday, if known. |
+| details | character | Additional details about the holiday, from the Wikipedia article. |
 
 # `proposed_federal_holidays.csv`
 
-|variable        |class     |description     |
-|:---------------|:---------|:---------------|
-|date            |character |The month and day or days when the holiday would be celebrated. |
-|date_definition |character |Whether the date is a "fixed date" or follows some other pattern. |
-|official_name   |character |The proposed official name of the holiday. |
-|details         |character |Additional details about the holiday, from the Wikipedia article. |
+| variable | class | description |
+|:---|:---|:---|
+| date | character | The month and day or days when the holiday would be celebrated. |
+| date_definition | character | Whether the date is a "fixed date" or follows some other pattern. |
+| official_name | character | The proposed official name of the holiday. |
+| details | character | Additional details about the holiday, from the Wikipedia article. |
 
+### PLOTS
+
+![holidays_plot](holidays_plot.jpeg) ![]()
 
 ### Cleaning Script
 

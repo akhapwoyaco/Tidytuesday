@@ -2,8 +2,9 @@
 library(tidyverse)
 library(readr)
 #
-emissions <- read_csv("emissions.csv")
-View(emissions)
+tuesdata <- tidytuesdayR::tt_load('2024-05-21')
+emissions <- tuesdata$emissions
+#View(emissions)
 #
 emissions_uncategorized <- emissions |> 
   group_by(year, commodity) |> 
@@ -22,7 +23,7 @@ emissions_uncategorized <- emissions |>
     panel.grid.major.y = element_line(),
     legend.position = 'bottom',
     legend.title = element_blank()
-    )
+  )
 #
 #
 #
@@ -62,4 +63,11 @@ emissions_categorized <- emissions |>
 #
 emissions_uncategorized
 emissions_categorized
+#
+ggsave(
+  plot = emissions_uncategorized, filename = "emissions_uncategorized.jpeg",
+  width = 40, height = 25, units = "cm", dpi = 650)
+ggsave(
+  plot = emissions_categorized, filename = "emissions_categorized.jpeg",
+  width = 40, height = 25, units = "cm", dpi = 650)
 #
