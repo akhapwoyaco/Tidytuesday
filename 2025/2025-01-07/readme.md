@@ -31,3 +31,7 @@ avia_par_lu_spreadsheet <- read_excel(
   drop_na(TIME) |> slice(-1) |> # remove that first row
   filter(!grepl("Special value", TIME))
 ```
+
+## SHINY APP
+
+![Flights App](tidytuesday_week1_2025.png)
