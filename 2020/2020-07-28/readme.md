@@ -6,14 +6,6 @@ The data this week comes from [Dr. Kristen Gorman](https://www.uaf.edu/cfos/peop
 
 Their [`palmerpenguins` packagedown site](https://allisonhorst.github.io/palmerpenguins/) and corresponding [GitHub Repo](https://github.com/allisonhorst/palmerpenguins) has all the details, which I will duplicate some of below.
 
-You can install their package for reproducible use via `install.packages("palmerpenguins")`.
-
-> The goal of `palmerpenguins` is to provide a great dataset for data exploration & visualization, as an alternative to iris.
->
-> We gratefully acknowledge Palmer Station LTER and the US LTER Network. Special thanks to Marty Downs (Director, LTER Network Office) for help regarding the data license & use.
-
-They've bundled both the raw data and the cleaned data together, which I have also included here.
-
 The main measurements are body mass, culmen (bill) length, bill depth, and flipper length.
 
 ### Get the data here
@@ -76,7 +68,5 @@ penguins_raw.csv <- readr::read_csv('https://raw.githubusercontent.com/rfordatas
 |Delta 13 C (o/oo)   |double    | Blood isotopic Carbon - used for dietary comparison |
 |Comments            |character | Miscellaneous comments |
 
-### Cleaning Script
 
-No cleaning script today, feel free to work with the pre-cleaned data or try your hand at the raw data!
-
+![bill_len_body_mass](bill_len_body_mass.png)
