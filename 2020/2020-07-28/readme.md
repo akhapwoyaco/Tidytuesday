@@ -70,3 +70,4 @@ penguins_raw.csv <- readr::read_csv('https://raw.githubusercontent.com/rfordatas
 
 
 ![bill_len_body_mass](bill_len_body_mass.png)
+![penguins_boxplots.jpeg](penguins_boxplots.jpeg)
