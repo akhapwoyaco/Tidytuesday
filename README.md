@@ -22,7 +22,15 @@ Data with Shiny Apps.
 | 12 | `2018-06-19` | [Hurricanes & Puerto Rico](2018-06-19) | [FiveThirtyEight package](https://github.com/rudeboybert/fivethirtyeight) | [FiveThirtyEight.com](https://fivethirtyeight.com/features/the-media-really-has-neglected-puerto-rico/) |
 | 13 | `2018-06-26` | [Alcohol Consumption](2018/2018-06-26) | [FiveThirtyEight package](https://github.com/rudeboybert/fivethirtyeight) | [FiveThirtyEight.com](https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/) |
 
-# 2020 Data
+## 2019
+
+Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTuesday` events.
+
+| Week | Date | Data | Source | Article |
+|:-------------:|:-------------:|:--------------|:--------------|:--------------|
+| 8 | `2019-02-19` | [US PhD's Awarded](2019-02-19) | [NSF](https://ncses.nsf.gov/pubs/nsf19301/data) | [`#epibookclub`](https://twitter.com/EpiEllie/status/1096876638632140805) |
+
+## 2020 Data
 
 Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTuesday` events.
 
@@ -34,7 +42,7 @@ Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTues
 | 32 | `2020-08-04` | [European Energy](2020/2020-08-04/readme.md) | [Eurostat Energy](https://ec.europa.eu/eurostat/statistics-explained/index.php/Electricity_generation_statistics_%E2%80%93_first_results) | [Washington Post Energy](https://www.washingtonpost.com/climate-environment/2020/07/30/biden-calls-100-percent-clean-electricity-by-2035-heres-how-far-we-have-go/?arc404=true&utm_medium=social&utm_source=twitter&utm_campaign=wp_graphics) |
 | 42 | `2020-10-13` | [`datasauRus` dozen](2020/2020-10-13/readme.md) | [Alberto Cairo](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html) | [`datasauRus` R package](https://cran.r-project.org/web/packages/datasauRus/vignettes/Datasaurus.html) |
 
-# 2021 Data
+## 2021 Data
 
 Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTuesday` events.
 
@@ -42,7 +50,7 @@ Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTues
 |:-------------:|:-------------:|:--------------|:--------------|:--------------|
 | 23 | `2021-06-01` | [Survivor TV Show](2021/2021-06-01) | [`survivoR` Package](https://github.com/doehm/survivoR) | [Daniel's Oehm's Website](http://gradientdescending.com/survivor-data-from-the-tv-series-in-r/) |
 
-# 2022 Data
+## 2022 Data
 
 Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTuesday` events.
 
@@ -51,7 +59,7 @@ Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTues
 | 3 | `2022-01-18` | [Chocolate Bar ratings](2022/2022-01-18/readme.md) | [Flavors of Cacao](http://flavorsofcacao.com/chocolate_database.html) | [Will Canniford on Kaggle](https://www.kaggle.com/willcanniford/chocolate-bar-ratings-extensive-eda) |
 | 36 | `2022-09-06` | [LEGO database](2022/2022-09-06) | [`rebrickable`](https://rebrickable.com/downloads/) | [`rebrickable`](https://rebrickable.com/downloads/) |
 
-# 2023 Data
+## 2023 Data
 
 Datasets with Shiny Apps, Data Visualizations from the 2021 series of `#TidyTuesday` events.
 

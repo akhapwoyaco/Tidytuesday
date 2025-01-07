@@ -6,10 +6,6 @@
 
 The data comes from the [NSF](https://ncses.nsf.gov/pubs/nsf19301/data) - where there are at least 72 different datasets if you wanted to approach the data from a different angle. They are primarily summary tables stored as `.xlsx` files. Cleaning these can be a bit awkward so if you are interested, it would be a cool project to try to do fully in R!
 
-Alternatively - I have cleaned the data for you and saved as a `.csv` for you to read directly into R. There was a lot of duplication, ie totals were represented within the broader table, and there wasn't a nice separation of the fields (simply indentation in the Excel sheet).
-
-To get at the details for broad or major fields, `dplyr::summarize` is your friend!
-
 ```{r}
 phd_field <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-02-19/phd_by_field.csv")
 ```

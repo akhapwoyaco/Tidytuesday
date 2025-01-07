@@ -1,16 +1,26 @@
+---
+title: "PhDs Awarded by Field"
+format: pdf
+editor: visual
+---
+
+```{r}
+knitr::opts_chunk$set(echo = T, warning=FALSE,message=FALSE,attr.source='.numberLines',attr.output='.numberLines', fig.align='center', dpi=350, fig.width=15, fig.height=15)
+```
+
+## Quarto
+
+```{r}
 #
 library(tidyverse)
 #
 tuesdata <- tidytuesdayR::tt_load('2019-02-19')
 phd_by_field <- tuesdata$phd_by_field
 #
-head(phd_by_field)
-#
-
 table_broad_field = table(phd_by_field$broad_field)
-#
-# plot(table_broad_field)
-#$
+```
+
+```{r}
 jpeg("table_broad_field_bar.jpeg", res = 300, height = 10, width = 15, units = 'cm')
 oldp <- par(mgp=c(3, 2, 0))
 barplot(
@@ -24,9 +34,9 @@ grid()
 par <- oldp
 dev.off()
 #
-#
+```
 
-#
+```{r}
 phd_by_field_plot = phd_by_field |>
   group_by(broad_field, year) |>
   summarise(
@@ -52,4 +62,4 @@ phd_by_field_plot = phd_by_field |>
 ggsave(
   "phd_by_field_plot.jpeg", plot = phd_by_field_plot, 
   width = 22, height = 15, unit = "cm", dpi = 450)
-#
+```
