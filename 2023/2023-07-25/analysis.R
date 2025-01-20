@@ -1,8 +1,10 @@
 #
+library(tidyverse)
+#
 tuesdata <- tidytuesdayR::tt_load(2023, week = 30)
 scurvy <- tuesdata$scurvy
 #
-View(scurvy)
+# View(scurvy)
 #
 scurvy |> 
   pivot_longer(
@@ -32,6 +34,7 @@ plot_frequencies = mm |>
     ) +
   scale_fill_brewer(palette = 'Dark2')
 #
+plot_frequencies
 ggsave(
 "plot_frequencies.jpeg", plot = plot_frequencies,
 width = 22, height = 15, unit = "cm", dpi = 450)
