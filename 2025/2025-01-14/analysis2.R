@@ -77,4 +77,9 @@ ggsave(
   filename = "char_words_plot.jpeg", plot = char_words_plot, 
   width = 35, height = 25, units = "cm", dpi = 750
 )
+# px
+ggsave(
+  filename = "char_words_plot.jpeg", plot = char_words_plot, 
+  width = 6000, height = 5000, units = "px", dpi = 550
+)
 #
