@@ -1,0 +1,67 @@
+
+@import url('https://fonts.cdnfonts.com/css/jetbrains-mono-2');
+body {
+  font-family: 'JetBrains Mono', monospace;
+  height: 100vh;
+  line-height: 2.20rem;
+  margin: 0;
+  background-color: #15354a;
+  padding: 1em;
+  
+}
+.navbar-brand {
+  margin-right: 0;
+}
+h2 { /*title*/
+    font-size: 3rem;
+    font-weight: 700;
+    
+    line-height: calc(2* var(--line-height));
+    text-transform: uppercase;
+    text-align: center;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+h3 {
+  font-size: 1.5rem; font-weight: 650; margin-bottom: 5px; 
+  display: flex; max-width: 100%; justify-content: center;
+}
+  .container-fluid {
+    border-radius: 0.5em;
+    max-width: 1200px;
+    background-color: white;
+    width: auto; /*have header at center of page*/
+  }
+  
+  .row {
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 18px;
+    border-radius: 5px;
+    padding: 1em;
+  }
+  label {
+    font-size: 1.5rem;
+    font-weight: 650;
+    
+    margin-bottom: 5px;
+    
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+  }
+  .shiny-input-select, .form-control, .shiny-bound-input {
+      border-radius: 0px;
+  }
+  .form-group, .shiny-input-container{
+    width: 100% !important; /*Yeap Definitely wanted the drop downs to be centered*/
+  }
+  .leaflet {
+    border-radius: 5px;
+  }
