@@ -65,7 +65,7 @@ h3 {
   .leaflet {
     border-radius: 5px;
   }
-  .average_table_data {
+  #averages_table {
     display: flex;
     justify-content: center;
     align-items: center;
