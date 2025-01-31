@@ -13,8 +13,9 @@ ui <- fluidPage(
   titlePanel(title = "Geographic Data Explorer"),
   geoDataUI("geodata"),
   mainPanel(
-    leafletOutput("map"),
-    DTOutput("averages_table")
+    div(class = "average_table_data",
+      fluidRow(dataTableOutput("averages_table"))
+    )
   )
 )
 
@@ -36,7 +37,7 @@ server <- function(input, output, session) {
   #     # )
   # })
   # 
-  output$averages_table <- renderDT({
+  output$averages_table <- renderDataTable({
     req(geo_data)
     # View(geo_data())
     data = geo_data() |>

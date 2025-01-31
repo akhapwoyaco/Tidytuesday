@@ -33,11 +33,11 @@ h3 {
     border-radius: 0.5em;
     max-width: 1200px;
     background-color: white;
-    width: auto; /*have header at center of page*/
+    /*have header at center of page*/
   }
   
   .row {
-  display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
@@ -64,4 +64,10 @@ h3 {
   }
   .leaflet {
     border-radius: 5px;
+  }
+  .average_table_data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
   }
