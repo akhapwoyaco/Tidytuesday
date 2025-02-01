@@ -17,16 +17,20 @@ water_insecurity = bind_rows(
     cols = name, delim = ", ", names = c("county", "state")
   ) |> 
   mutate(
-    county = str_replace(county, "County", "") |> trimws(),
-    state_abb = state.abb[match(state, state.name)]
+    county = str_replace(county, "County", "") |> trimws()#,
+    #state_abb = state.abb[match(state, state.name)]
   ) 
 #
 water_insecurity |> head(10)
 #
+county_state_data = water_insecurity |> select(county, state)
+saveRDS(county_state_data, file = "data/county_state_data.rds")
+#
 dir.create('data')
 ls()
 #
-for (state_abb_c in state.abb){
+state_names_data = unique(water_insecurity$state)
+for (state_abb_c in state_names_data){
   print(state_abb_c)
   # append to specific country
   if (!exists(state_abb_c)){
@@ -39,7 +43,7 @@ for (state_abb_c in state.abb){
     rbind(
       get(state_abb_c),
       water_insecurity |>
-        dplyr::filter(grepl(pattern = state_abb_c, x = state_abb)) |>
+        dplyr::filter(grepl(pattern = state_abb_c, x = state)) |>
         select(-state)
     ),
     envir = .GlobalEnv)
@@ -50,7 +54,6 @@ for (state_abb_c in state.abb){
   
   rm(state_abb_c)
 }
-WY
 warnings()
 # state.abb
 rm(list = ls())

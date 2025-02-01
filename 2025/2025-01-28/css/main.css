@@ -2,7 +2,7 @@
 @import url('https://fonts.cdnfonts.com/css/jetbrains-mono-2');
 body {
   font-family: 'JetBrains Mono', monospace;
-  height: 100vh;
+  height: 100%;
   line-height: 2.20rem;
   margin: 0;
   background-color: #15354a;

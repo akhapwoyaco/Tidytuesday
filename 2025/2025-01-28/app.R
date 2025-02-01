@@ -1,12 +1,14 @@
 # app/app.R
+library(tidyverse)
 library(shiny)
 library(leaflet)
 library(DT)
-library(usmap)
-library(plotly)
 #
+# county_state_data = readRDS("data/county_state_data.rds")
+# unique_states = unique(county_state_data$state) |> sort()
 source("modules/module_ui.R")
 source("modules/module_server.R")
+
 
 ui <- fluidPage(
   includeCSS("css/main.css"),
@@ -48,7 +50,7 @@ server <- function(input, output, session) {
     #
     datatable(
       data = data, 
-      options = list(dom = 't'))
+      options = list(dom = 't', pageLength = 25))
   })
 }
 
