@@ -4,54 +4,19 @@ library(shiny)
 library(leaflet)
 library(DT)
 #
-# county_state_data = readRDS("data/county_state_data.rds")
-# unique_states = unique(county_state_data$state) |> sort()
-source("modules/module_ui.R")
-source("modules/module_server.R")
-
-
+source("modules/geodata_module.R")
+source("modules/table_module.R")
+#
 ui <- fluidPage(
   includeCSS("css/main.css"),
   titlePanel(title = "Geographic Data Explorer"),
-  geoDataUI("geodata"),
-  mainPanel(
-    div(class = "average_table_data",
-      fluidRow(dataTableOutput("averages_table"))
-    )
-  )
+  geoDataUI("the_geodata_ui"),
+  tableUI("c_averages_table")
 )
-
+#
 server <- function(input, output, session) {
-  geo_data <- geoDataServer("geodata")
-  # View(geo_data())
-  # 
-  # output$map <- renderLeaflet({
-  #   req(geo_data())
-  #   # geo_data() |> 
-  #     # leaflet() |>
-  #     # addTiles() |>
-  #     # addPolygons(
-  #     #   #fillColor = ~colorQuantile("YlOrRd", value)(value),
-  #     #   weight = 2,
-  #     #   color = "#666",
-  #     #   fillOpacity = 0.7#,
-  #     #   # popup = ~paste(county, state, "<br>Value:", value)
-  #     # )
-  # })
-  # 
-  output$averages_table <- renderDataTable({
-    req(geo_data)
-    # View(geo_data())
-    data = geo_data() |>
-      select(county, year, percent_lacking_plumbing) |>
-      pivot_wider(
-        id_cols = county, names_from = year,
-        values_from = percent_lacking_plumbing)
-    #
-    datatable(
-      data = data, 
-      options = list(dom = 't', pageLength = 25))
-  })
+  geo_data <- geoDataServer("the_geodata_ui")
+  tableServer("c_averages_table", data = geo_data)
 }
 
 shinyApp(ui = ui, server = server)
