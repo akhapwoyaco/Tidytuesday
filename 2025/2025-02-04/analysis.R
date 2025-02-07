@@ -1,0 +1,138 @@
+#
+tuesdata <- tidytuesdayR::tt_load(2025, week = 5)
+#
+simpsons_characters <- tuesdata$simpsons_characters
+simpsons_episodes <- tuesdata$simpsons_episodes
+simpsons_locations <- tuesdata$simpsons_locations
+simpsons_script_lines <- tuesdata$simpsons_script_lines
+#
+simpsons_characters
+#
+library(tidyverse)
+library(ggrepel)
+simpsons_episodes_tile_plot = simpsons_episodes |>
+  ggplot(aes(x = season, y = number_in_season, fill = imdb_rating)) +
+  geom_tile(color = 'white', linewidth = 0.1) +
+  geom_text(aes(label = imdb_rating), color = 'black', fontface ='bold') +
+  scale_fill_gradient(low = 'yellow', high = 'red') +
+  scale_x_continuous(breaks = seq(21,28, 1), expand = c(0,0)) +
+  scale_y_continuous(breaks = seq(1,24, 1), expand = c(0,0)) +
+  labs(
+    title = "Simpson's Episodes",
+    subtitle = "IMDb rating for the episode ~ season",
+    caption = c("tidytuesdayR::tt_load(2025, week = 5)", "https://github.com/akhapwoyaco/")
+  ) +
+  theme_light() +
+  theme(
+    legend.title = element_blank(),
+    legend.position = 'none',
+    axis.text = element_text(face = 'bold'),
+    axis.title = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_line(size = 0.001),
+    axis.ticks = element_blank(),
+    plot.title = element_text(hjust = 0.5, face = "bold"),
+    plot.subtitle = element_text(hjust = 0.5, face = "bold")
+  )
+#
+simpsons_episodes_tile_plot
+#
+ggsave(
+  filename = "simpsons_episodes_tile_plot.jpeg",
+  plot = simpsons_episodes_tile_plot,  dpi = 600, 
+  width = 30, height = 25, units = 'cm'
+)
+#
+#####################################################################
+simpsons_episodes_scatter_text_data = simpsons_episodes |>
+  mutate(
+    viewers_us_millions = cut_interval(us_viewers_in_millions, n = 6)
+  ) |> drop_na()
+#
+top_n_rated_eps = simpsons_episodes_scatter_text_data |>
+  select(original_air_date, imdb_rating, title, viewers_us_millions) |>
+  slice_max(imdb_rating, n = 8) |>
+  mutate(title = title |> str_wrap(width = 20))
+bottom_n_rated_eps = simpsons_episodes_scatter_text_data |>
+  select(original_air_date, imdb_rating, title, viewers_us_millions) |>
+  slice_min(imdb_rating, n = 8) |>
+  mutate(title = title |> str_wrap(width = 20))
+top_n_rated_eps
+bottom_n_rated_eps
+#
+#
+simpsons_episodes_scatter_plot = simpsons_episodes_scatter_text_data |>
+  ggplot(
+    aes(x = original_air_date, y = imdb_rating)) +
+  geom_point(aes(color = viewers_us_millions)) + 
+  geom_text_repel(
+    data = top_n_rated_eps,
+    aes(
+      x = original_air_date, y = imdb_rating,
+      label = title, color = viewers_us_millions),
+    box.padding = 1, max.overlaps = Inf,
+    nudge_y = 1, segment.inflect = T, min.segment.length = 0.2,
+    segment.curvature = -0.1, segment.linetype = 6,
+    nudge_x = .15, arrow = arrow(length = unit(0.015, "npc")),
+    xlim = c(as.Date("2010-01-28"), as.Date("2016-10-01")),
+    ylim = c(7,9)
+  ) +
+  geom_text_repel(
+    data = bottom_n_rated_eps,
+    aes(
+      x = original_air_date, y = imdb_rating,
+      label = title, color = viewers_us_millions),
+    box.padding = 1, max.overlaps = Inf,
+    nudge_y = 1, segment.inflect = T, min.segment.length = 0.2,
+    segment.curvature = -0.1, segment.linetype = 6,
+    nudge_x = .1,
+    arrow = arrow(length = unit(0.01, "npc")),
+    xlim = c(as.Date("2010-02-01"), as.Date("2016-10-01")),
+    ylim = c(4, 6)
+  ) +
+  scale_color_brewer(palette = 'Dark2') +
+  theme_classic() +
+  labs(
+    title = "Simpson's Episodes",
+    subtitle = "IMDB Ratings ~ Original Air Date: Top and Bottom 8 Rated",
+    x = "Original Air Date", y = "IMDB Ratings", 
+    caption = c("tidytuesdayR::tt_load(2025, week = 5)", "https://github.com/akhapwoyaco/")
+  ) +
+  theme_excel_new() + 
+  guides(
+    color = guide_legend(nrow = 1, byrow = TRUE, override.aes = list(size = 3))) +
+  theme(
+    axis.text = element_text(face = 'bold'),
+    axis.title = element_text(face = 'bold'),
+    plot.title = element_text(face = 'bold', hjust = 0.5),
+    plot.subtitle = element_text(face = 'bold', hjust = 0.5),
+    legend.position = 'top',
+    legend.background = element_blank(),
+    legend.direction = 'horizontal',
+    plot.caption = element_text(hjust = c(1,0))
+  )
+simpsons_episodes_scatter_plot
+#
+ggsave(
+  filename = "simpsons_episodes_scatter_plot.jpeg",
+  plot = simpsons_episodes_scatter_plot,  dpi = 600, 
+  width = 30, height = 25, units = 'cm'
+)
+#
+#
+par(mar = c(5.1, 5.8, 4.1, 2.1))
+b1 <- boxplot(
+  word_count~raw_character_text, data = the_simpsons_lines, 
+  horizontal = T, main = "The Simpson's Words Count", ylab = '', 
+  xlab = 'sd', las = 1, boxwex = 0.4, yaxt = 'n', 
+  medlwd = 2, whiskcol = "black", staplecol = "black", 
+  outcol="red", cex = 0.5, outpch = 19)
+axis(
+  side = 2, at = 1:length(b1$names), 
+  labels = paste(
+    gsub(pattern = " ", replacement = "\n", x = b1$names), #b1$names,
+    "\n(n=", b1$n,")", sep=""), 
+  las = 1)
+par(mar = c(5.1, 4.1, 4.1, 2.1))
+#
+#

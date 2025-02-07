@@ -1,6 +1,9 @@
 #
-water_insecurity_2022 <- readr::read_csv('water_insecurity_2022.csv')
-water_insecurity_2023 <- readr::read_csv('water_insecurity_2023.csv')
+tuesdata <- tidytuesdayR::tt_load(2025, week = 4)
+water_insecurity_2022 <- tuesdata$water_insecurity_2022
+water_insecurity_2023 <- tuesdata$water_insecurity_2023
+# water_insecurity_2022 <- readr::read_csv('water_insecurity_2022.csv')
+# water_insecurity_2023 <- readr::read_csv('water_insecurity_2023.csv')
 #
 head(water_insecurity_2022)
 head(water_insecurity_2023)
