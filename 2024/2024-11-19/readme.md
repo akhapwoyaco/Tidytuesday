@@ -4,14 +4,14 @@ This week we're exploring Bob's Burgers dialogue! Thank you to [Steven Ponce](ht
 
 See the [{bobsburgersR} R Package](https://github.com/poncest/bobsburgersR) for the original transcript data, as well as additional information about each episode!
 
-- How have dialogue metrics changed over the seasons?
-- Can you find any patterns not shown in Steven Ponce's original visualization?
+-   How have dialogue metrics changed over the seasons?
+-   Can you find any patterns not shown in Steven Ponce's original visualization?
 
 Thank you to [Jon Harmon](https://github.com/jonthegeek) for curating this week's dataset.
 
 ## The Data
 
-```r
+``` r
 # Option 1: tidytuesdayR package 
 ## install.packages("tidytuesdayR")
 
@@ -26,31 +26,28 @@ episode_metrics <- tuesdata$episode_metrics
 episode_metrics <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-11-19/episode_metrics.csv')
 ```
 
-## How to Participate
-
-- [Explore the data](https://r4ds.hadley.nz/), watching out for interesting relationships. We would like to emphasize that you should not draw conclusions about **causation** in the data. There are various moderating variables that affect all data, many of which might not have been captured in these datasets. As such, our suggestion is to use the data provided to practice your data tidying and plotting techniques, and to consider for yourself what nuances might underlie these relationships.
-- Create a visualization, a model, a [shiny app](https://shiny.posit.co/), or some other piece of data-science-related output, using R or another programming language.
-- [Share your output and the code used to generate it](../../../sharing.md) on social media with the #TidyTuesday hashtag.
-- [Submit your own dataset!](../../../.github/pr_instructions.md)
-
 ### Data Dictionary
 
 # `episode_metrics.csv`
 
-|variable           |class   |description                           |
-|:------------------|:-------|:-------------------------------------|
-|season             |integer |The season number in which the episode is part of the Bob's Burgers TV show. |
-|episode            |integer |The episode number within the specific season of Bob's Burgers. |
-|dialogue_density   |double  |The number of non-blank lines in this episode. |
-|avg_length         |double  |The average number of characters (technically codepoints, see `?stringr::str_length`) per line of dialogue. |
-|sentiment_variance |double  |The variance in the numeric AFINN sentiment of words in this episode. See `?textdata::lexicon_afinn` for further information. |
-|unique_words       |integer |The number of unique lowercase words in this episode. |
-|question_ratio     |double  |The proportion of lines of dialogue that contain at least one question mark ("?"). |
-|exclamation_ratio  |double  |The proportion of lines of dialogue that contain at least one exclamation point ("!"). |
+| variable | class | description |
+|:-----------------|:---------------|:-------------------------------------|
+| season | integer | The season number in which the episode is part of the Bob's Burgers TV show. |
+| episode | integer | The episode number within the specific season of Bob's Burgers. |
+| dialogue_density | double | The number of non-blank lines in this episode. |
+| avg_length | double | The average number of characters (technically codepoints, see `?stringr::str_length`) per line of dialogue. |
+| sentiment_variance | double | The variance in the numeric AFINN sentiment of words in this episode. See `?textdata::lexicon_afinn` for further information. |
+| unique_words | integer | The number of unique lowercase words in this episode. |
+| question_ratio | double | The proportion of lines of dialogue that contain at least one question mark ("?"). |
+| exclamation_ratio | double | The proportion of lines of dialogue that contain at least one exclamation point ("!"). |
+
+### EDA
+
+![](./bobs_burger_exclamation_question_ratios_plot.jpeg)
 
 ### Cleaning Script
 
-```r
+``` r
 # Mostly clean data provided by Steven Ponce (@poncest) via the {bobsburgersR} R
 # package. Cleaning based on
 # https://stevenponce.netlify.app/projects/standalone_visualizations/sa_2024-11-11.html
