@@ -1,0 +1,48 @@
+---
+title: "Canada"
+subtitle: "`r paste(input$country)`"
+author: "`r paste('Citizen of ', input$country)`"
+date: "`r Sys.Date()`"
+urlcolor: blue
+mainfont: Arial
+fontsize: 10pt
+spacing: single
+---
+\newpage
+# Introduction
+
+# Data
+
+## Data Description
+
+# `canada_births_1991_2022.csv`
+
+|variable |class  |description |
+|:--------|:------|:-----------|
+|year     |integer|birth year|
+|month    |integer|birth month|
+|births   |integer|number of live births in Canada in that year and month|
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE,message=FALSE, echo = F, out.height = "\\textheight",  out.width = "\\textwidth")
+```
+
+\newpage
+## Data Summaries
+
+```{r,warning=FALSE,message=FALSE,attr.source='.numberLines',attr.output='.numberLines'} 
+births_lowest_years() |>
+  pander::pander(split.table=Inf) 
+```
+
+## Plot
+
+```{r,warning=FALSE,message=FALSE,attr.source='.numberLines',attr.output='.numberLines', fig.align='center', dpi = 450, fig.width=10, fig.height=9, fig.cap='Canada Births Plot'} 
+births_plot()
+```
+
+
+
+
+

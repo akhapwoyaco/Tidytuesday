@@ -1,0 +1,23 @@
+.title {
+  text-align: center;
+}
+#downloadPlot {
+  background-color: lightblue;
+  color: black;
+  border-color: black;
+}
+#downloadReport {
+  background-color: lightgreen;
+  color: black;
+  border-color: black;
+}
+#downloadData {
+  background-color: lightyellow;
+  color: black;
+  border-color: black;
+}
+#aboutLink {
+  background-color: lightcoral;
+  color: black;
+  border-color: black;
+}

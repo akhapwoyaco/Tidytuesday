@@ -3,13 +3,14 @@
 ## install.packages("tidytuesdayR")
 library(ggrepel)
 library(dplyr)
+library(readr)
 library(ggplot2)
 library(tidyr)
 library(lubridate)
 #
-tuesdata <- tidytuesdayR::tt_load('2024-12-24')
-global_holidays <- tuesdata$global_holidays
-monthly_passengers <- tuesdata$monthly_passengers
+#tuesdata <- tidytuesdayR::tt_load('2024-12-24')
+global_holidays <- read_csv("global_holidays.csv")#tuesdata$global_holidays
+monthly_passengers <- read_csv("monthly_passengers.csv")#tuesdata$monthly_passengers
 #
 country_choices = unique(global_holidays$ADM_name)
 #
