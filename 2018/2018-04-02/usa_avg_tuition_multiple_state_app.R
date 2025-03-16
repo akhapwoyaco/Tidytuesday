@@ -3,7 +3,7 @@
 #' in both ggplot and base R
 #'
 library(shiny)
-library(ggplot2)
+library(ggplot2)  
 library(dplyr)
 library(tidyr)
 library(scales)

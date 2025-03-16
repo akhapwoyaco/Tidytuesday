@@ -5,7 +5,7 @@ library(DT)
 library(dplyr)
 library(tidyr)
 library(tibble)
-library(ggplot2)
+library(ggplot2)  
 
 #' get data
 tuesdata <- tidytuesdayR::tt_load('2018-04-16')

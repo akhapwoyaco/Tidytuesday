@@ -6,7 +6,7 @@ library(lubridate)
 library(ggplot2)
 library(tidyr)
 library(DT)
-
+  
 # load data
 load(file = 'flights_data.RData')
 #
