@@ -1,5 +1,7 @@
 #
 library(readr)
+library(tidyverse)
+#
 pixar_films <- read_csv("pixar_films.csv")
 # View(pixar_films)
 #
@@ -67,7 +69,7 @@ pixar_films_plot = pixar_films |>
 pixar_films_plot
 #
 ggsave(plot = pixar_films_plot, filename = "pixar_films_plot.jpeg",
-      width = 25, height = 20, dpi = 450, units = 'cm')
+       width = 25, height = 20, dpi = 450, units = 'cm')
 #
 #
 #
@@ -77,7 +79,29 @@ public_response
 pixar_films
 #
 #
-merge(
+all_data = merge(
   pixar_films,
   public_response, all = TRUE
 )
+#
+film_critics_plot = all_data |> 
+  select(film, rotten_tomatoes, metacritic, critics_choice) |>
+  pivot_longer(
+    cols = -film, names_to = 'critics', values_to = 'ratings'
+  ) |> drop_na(film) |>
+  ggplot() +
+  geom_col(
+    aes(x = film, y = ratings, fill = critics), 
+    position = position_dodge()) +
+  theme_minimal() +
+  theme(
+    legend.position = 'top'
+  )
+#
+film_critics_plot
+#
+ggsave(
+  plot = film_critics_plot, filename = "film_critics_plot.jpeg",
+       width = 25, height = 20, dpi = 450, units = 'cm')
+
+#
