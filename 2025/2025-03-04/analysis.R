@@ -1,0 +1,20 @@
+#
+library(readr)
+longbeach <- read_csv("longbeach.csv")
+head(longbeach)
+#
+unique(longbeach$animal_type)
+unique(longbeach$primary_color)
+unique(longbeach$secondary_color)
+unique(longbeach$sex)
+unique(longbeach$intake_condition)
+unique(longbeach$intake_type)
+unique(longbeach$intake_subtype)
+unique(longbeach$reason_for_intake)
+unique(longbeach$crossing)
+unique(longbeach$jurisdiction)
+unique(longbeach$outcome_type)
+unique(longbeach$outcome_subtype)
+unique(longbeach$outcome_is_dead)
+unique(longbeach$was_outcome_alive)
+#
