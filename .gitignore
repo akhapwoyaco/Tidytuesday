@@ -19,3 +19,4 @@ data/*
 *.log
 *.tex
 *.gz
+*/.ipynb_checkpoints/*
